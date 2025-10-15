@@ -1,0 +1,5 @@
+sidebar: Weekly
+week_title: lmnop
+number-offset: 3
+filters:
+   - stats-uog

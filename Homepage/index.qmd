@@ -1,0 +1,11 @@
+---
+sidebar: hub
+week_title: "Homepage"
+---
+
+# Welcome
+
+This is just the hub page. Not needed, but it could provide a menu on the left to jump to any particular chapter.
+
+Most easily done by hard-coding the chapter links into the `_quarto.yml` file, in the sidebar with `id: hub`.
+

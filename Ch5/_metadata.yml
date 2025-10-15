@@ -1,0 +1,5 @@
+sidebar: Weekly
+week_title: qrstu
+number-offset: 4
+filters:
+   - stats-uog

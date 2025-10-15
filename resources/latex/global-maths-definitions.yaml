@@ -1,0 +1,2 @@
+# This .. at the start will only work for pages rendered one level deeper than the root
+input-file: ../resources/latex/mymacros.sty 

@@ -1,0 +1,105 @@
+project:
+  resources: ["resources"] # List files/folders here which need copying to live version, but which aren't explicitly references (e.g. numbas folders)
+  output-dir: _preview
+  type: website
+
+knitr: true
+
+#bibliography: references.bib
+reference-location: margin
+
+course_title: "Test Course"
+metadata-files: 
+  - _numbered-boxes.yml # Definitions for Ute Hahn's coloured boxes extension
+                        # the contents can be pasted here if desired instead
+
+# Defines a new float so we can use :::{#vid-<label>} and it calls it a "Video"
+crossref:
+   custom:
+    - kind: float
+      reference-prefix: Video
+      key: vid
+      latex-env: video
+
+website:
+  page-footer:
+    right: "Developed by David Hodge for the University of Glasgow"
+  sidebar:
+    - id: Weekly
+      tools:
+        - icon: ""
+      style: "floating"
+      search: true
+      header: |
+        <div class="book-title-section">
+          <img src="../resources/logos/MandS-logo.png"
+               class="sidebar-logo"
+               alt="Logo of the School of Mathematics and Statistics at the University of Glasgow">
+          <h2 class="sidebar-title"><span>{{< meta course_title >}}</span></h2>
+          <p class="sidebar-subtitle"><span>{{< meta week_title >}}</span></p>
+        </div>
+    - id: hub
+      tools:
+        - icon: ""
+      style: "docked"
+      search: true
+      header: |
+        <div class="book-title-section">
+          <img src="../resources/logos/MandS-logo.png"
+               class="sidebar-logo"
+               alt="Logo of the School of Mathematics and Statistics at the University of Glasgow">
+          <h2 class="sidebar-title"><span>{{< meta course_title >}}</span></h2>
+          <p class="sidebar-subtitle"><span>{{< meta week_title >}}</span></p>
+        </div>
+      contents:
+      - text: "Doing headings (edit)"
+        href: Ch1/Ch1.html
+      - text: "Code demos (edit)"
+        href: Ch2/Ch2.html
+      - text: "How to link (edit)"
+        href: Ch3/Ch3.html
+      - text: "Nice boxes (edit)"
+        href: Ch4/Ch4.html
+      - text: "Spare (edit)"
+        href: Ch5/Ch5.html
+      
+
+# My filters
+filters:
+  - latex-environment # This saves having to type data-latex="" all the time
+  - fontawesome # This loads a large bank of nice icons
+  - custom-numbered-blocks
+environments: [term] # See latex-environment above
+commands: [term]
+use-rsvg-convert: true
+number-depth: 3
+format:
+  html:
+    defaults: [resources/latex/global-maths-definitions.yaml]
+    default-image-extension: svg
+    highlight-style: a11y
+    mainfont: "Atkinson Hyperlegible"
+    code-overflow: wrap
+    toc: true
+    toc-location: right
+    toc-depth: 4
+    number-sections: true
+    respect-user-color-scheme: true
+    theme:
+      light: [themes/load-light.scss, cosmo]
+      dark: [superhero, themes/load-dark.scss]
+    #include-after-body: disable-tippy-tab.js
+  pdf:
+    documentclass: scrreport
+    default-image-extension: png
+    keep-tex: true
+    papersize: a4
+    include-in-header: ["include-in-header.tex"]
+    code-block-overflow: wrap
+    geometry:
+      - left=10mm
+      - marginparwidth=60mm
+      - textwidth=130mm
+      - marginparsep=5mm
+
+

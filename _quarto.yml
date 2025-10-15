@@ -2,11 +2,12 @@ project:
   resources: ["resources"] # List files/folders here which need copying to live version, but which aren't explicitly references (e.g. numbas folders)
   output-dir: _preview
   type: website
-  extensions:
-    - ute/custom-numbered-blocks
-    - david-hodge/stats-uog
-    - quarto-ext/fontawesome
-    - quarto-ext/latex-environment
+
+extensions:
+  - ute/custom-numbered-blocks
+  - david-hodge/stats-uog
+  - quarto-ext/fontawesome
+  - quarto-ext/latex-environment
 
 knitr: true
 

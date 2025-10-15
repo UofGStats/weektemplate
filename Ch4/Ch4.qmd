@@ -172,5 +172,5 @@ You can reference the blocks defined above using their labels:
 
 ## Customization
 
-Each box has to define four colours. In the file mentioned above the light-mode border and background are set. For those using dark-mode you also need to define a dark mode pair. See [dark styles boxes stylesheet](themes/dark-styles-boxes.scss).
+Each box has to define four colours. In the file mentioned above the light-mode border and background are set. For those using dark-mode you also need to define a dark mode pair. See [dark styles boxes stylesheet](../themes/dark-styles-boxes.scss).
 

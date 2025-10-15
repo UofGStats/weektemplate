@@ -7,7 +7,7 @@ No linking between chapters, they are separate. Nor to equations outside this ch
 One way to include videos is to use the Quarto syntax used to insert any figures, where you write
 
 ```
-::: {#fig-vid3}
+::: {#vid-vid3}
 {{﹤video https://youtu.be/d2nG7Y17sQw 
   title = "Binomial response models applied to beetle mortality data (9m59s)",
   <other customizations can be put here>
@@ -21,7 +21,7 @@ For more details: [Quarto video manual](https://quarto.org/docs/authoring/videos
 
 Here it is:
 
-::: {#fig-vid3}
+::: {#vid-vid3}
 {{< video https://youtu.be/d2nG7Y17sQw 
   title = "Binomial response models applied to beetle mortality data (9m59s)"
 >}}
@@ -29,7 +29,7 @@ Here it is:
 This is the caption.
 :::
 
-Referencing is simple, like this @fig-vid3. Such video blocks must contain actual text (the caption is drawn from the final line).
+Referencing is simple, like this @vid-vid3. Such video blocks must contain actual text (the caption is drawn from the final line).
 
 
 ## Section Two

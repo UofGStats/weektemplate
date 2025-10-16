@@ -3,3 +3,9 @@ week_title: defgh
 number-offset: 1
 filters:
    - stats-uog
+
+format:
+  pdf:
+    include-in-header:
+      text: |
+        \setcounter{chapter}{5}

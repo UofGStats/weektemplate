@@ -96,10 +96,11 @@ format:
       dark: [superhero, themes/load-dark.scss]
     #include-after-body: disable-tippy-tab.js
   pdf:
-    documentclass: scrreport
+    documentclass: scrreprt
     default-image-extension: png
     keep-tex: true
     papersize: a4
+    number-sections: true
     include-in-header: ["include-in-header.tex"]
     code-block-overflow: wrap
     geometry:

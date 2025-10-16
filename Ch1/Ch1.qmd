@@ -89,13 +89,18 @@ library(gridExtra)
 ```
 
 <!-- Setup python via conda and a predefined quarto environment -->
-```{r setup, echo=F}
+```{r setup}
+#| echo: false
+#| eval: false
 #| code-fold: false
 library(reticulate)
 reticulate::use_condaenv(condaenv = "quarto", conda = "auto", required = TRUE)
 ```
 
-```{python, echo=F, eval=F}
+```{python}
+#| echo: false
+#| eval: false
+
 # Standard plot settings
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -132,7 +137,10 @@ beetles
 
 ### Python
 
-```{python, results = 'show', eval=TRUE}
+```{python}
+#| echo: false
+#| eval: false
+#| results: markup
 import pandas as pd
 beetles = pd.read_csv("../resources/data/beetles.csv")
 beetles

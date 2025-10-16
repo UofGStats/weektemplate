@@ -7,4 +7,4 @@ format:
   pdf:
     include-in-header:
       text: |
-        \setcounter{chapter}{2} # One lower than target
+        \setcounter{chapter}{2}

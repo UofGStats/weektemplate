@@ -5,8 +5,12 @@ filters:
    - stats-uog
 
 format:
-  html: default
+  html:
+    css:
+    - include/webex.css
+    include-after-body: include/webex.js
   pdf:
     include-in-header:
       text: |
-        \setcounter{chapter}{$number-offset$}
+        \setcounter{chapter}{4}
+    

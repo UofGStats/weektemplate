@@ -98,7 +98,7 @@ format:
   pdf:
     documentclass: scrreprt
     default-image-extension: png
-    keep-tex: true
+    keep-tex: false
     papersize: a4
     number-sections: true
     include-in-header: ["include-in-header.tex"]

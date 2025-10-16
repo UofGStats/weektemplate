@@ -5,7 +5,8 @@ filters:
    - stats-uog
 
 format:
+  html: default
   pdf:
     include-in-header:
       text: |
-        \setcounter{chapter}{5}
+        \setcounter{chapter}{1}

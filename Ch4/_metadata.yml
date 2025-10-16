@@ -3,3 +3,10 @@ week_title: lmnop
 number-offset: 3
 filters:
    - stats-uog
+
+format:
+  html: default
+  pdf:
+    include-in-header:
+      text: |
+        \setcounter{chapter}{3}

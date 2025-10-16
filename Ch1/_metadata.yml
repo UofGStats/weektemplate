@@ -2,3 +2,9 @@ sidebar: Weekly
 week_title: abcde
 number-offset: 0
 
+format:
+  html: default
+  pdf:
+    include-in-header:
+      text: |
+        \setcounter{chapter}{0}

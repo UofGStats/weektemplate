@@ -3,3 +3,10 @@ week_title: qrstu
 number-offset: 4
 filters:
    - stats-uog
+
+format:
+  html: default
+  pdf:
+    include-in-header:
+      text: |
+        \setcounter{chapter}{$number-offset$}

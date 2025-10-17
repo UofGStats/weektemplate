@@ -1,4 +1,4 @@
-# Chapter 5 - 
+# Chapter 5
 
 ## R package: `webexercises`
 
@@ -59,4 +59,45 @@ This is the equivalent to `r in_labelled_fitb(
 )` 
 and it returns the value 
 `r in_labelled_fitb("125", label_text = "fill in the return value")`.
+:::
+
+## Numbas embedding
+
+Another opportunity with HTML is to embed via an iframe to some external content.
+
+I have embedded some functions insider `_common.R` which setup how to do this via an R function. You need to first create your Numbas question, then preview it, and click *Download*. This provides a zip file, which you unzip and place the folder into `/resources/numbas/<your-chosen-name>`. Then in the code below you just point to the `index.html` for the question. Questions are of varying heights and widths too, so you can customize it in when you create the iframe.
+
+```{r}
+#| echo: fenced
+numbaselement("/resources/numbas/Q13/index.html", iwidth="90%", iheight="900px")
+```
+
+If you want the PDF version to contain an actual hyperlink then you need to get a link to a website version of your question, like this example below. You could try and always use this link rather than the local download below, but the you are dependent on the external website.
+
+```{r}
+#| echo: fenced
+numbaselement(
+  "/resources/numbas/Q13/index.html",
+  iwidth = "90%",
+  iheight = "900px",
+  url = "https://numbas.mathcentre.ac.uk/question/119566/matrix-lin\
+  ear-combination/embed/?token=e221efa1-3a50-429c-bb4a-8c63d2610114"
+)
+```
+
+:::{.callout-note}
+I inserted the `\` symbol in the long url address, to render nicely for you, but users don't normally see it. 
+
+When presenting you will set `echo: false` on the block anyway, so the user only sees the question.
+:::
+
+### Hiding a numbas task
+
+An alternative to having a large space-using question, is to hide inside a collapsed box like the following.
+
+:::{.Task}
+```{r}
+#| echo: false
+numbaselement("/resources/numbas/Q13/index.html", iwidth="90%", iheight="900px")
+```
 :::

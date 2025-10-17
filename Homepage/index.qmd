@@ -1,6 +1,8 @@
 ---
 sidebar: hub
 week_title: "Homepage"
+format: 
+  html: default
 ---
 
 # Welcome

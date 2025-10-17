@@ -27,6 +27,8 @@ crossref:
       key: vid
       latex-env: video
 
+pagetitle: "{{< meta course_title >}} - {{< meta week_title >}}"
+
 website:
   page-footer:
     right: "Developed by David Hodge for the University of Glasgow"

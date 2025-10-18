@@ -1,0 +1,29 @@
+# Chapter 6
+
+## Invisible text
+
+One way to hide text in the HTML is set the text to be transparent
+
+:::{.invisible-text}
+
+$$
+\int_0^{\infty} x^2 \dx
+$$
+
+:::
+
+The equation above was hidden.
+
+The next line is also hidden.
+
+:::{.invisible-text}
+
+This line is hidden.
+
+:::
+
+There was a line before above this.
+
+## Scrap that..
+
+Actually let's go with a shortcode which looks like {{ hide start}} and {{ hide end }} etc.. then put the html and pdf code into the lua filter. To do.

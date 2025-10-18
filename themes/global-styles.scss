@@ -92,6 +92,11 @@ main > header + p {
   display: none;
 }
 
+// Invisible text
 
+.invisible-text {
+  color: transparent;
+  user-select: none;
+}
 
 

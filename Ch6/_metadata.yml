@@ -1,0 +1,17 @@
+sidebar: Weekly
+week_title: vwxyz
+number-offset: 5
+filters:
+   - stats-uog
+
+environments: [invisible-text]
+
+format:
+  html: default
+  pdf:
+    keep-tex: true
+    include-in-header:
+      text: |
+        \setcounter{chapter}{5}
+        \newenvironment{invisible-text}{\color{white}}{}
+    

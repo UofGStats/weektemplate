@@ -4,7 +4,10 @@ number-offset: 5
 filters:
    - stats-uog
 
-environments: [invisible-text]
+invis: (anything except 'debug' or 'false' will hide text)
+
+stats-uog:
+  global-toggle: false
 
 format:
   html: default
@@ -13,5 +16,4 @@ format:
     include-in-header:
       text: |
         \setcounter{chapter}{5}
-        \newenvironment{invisible-text}{\color{white}}{}
     

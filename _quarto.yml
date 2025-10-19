@@ -6,6 +6,7 @@ project:
 extensions:
   - ute/custom-numbered-blocks
   - david-hodge/stats-uog
+  - david-hodge/invis
   - quarto-ext/fontawesome
   - quarto-ext/latex-environment
 
@@ -77,6 +78,7 @@ filters:
   - latex-environment # This saves having to type data-latex="" all the time
   - fontawesome # This loads a large bank of nice icons
   - custom-numbered-blocks
+  - invis
 environments: [term] # See latex-environment above
 commands: [term]
 use-rsvg-convert: true

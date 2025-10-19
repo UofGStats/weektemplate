@@ -1,6 +1,7 @@
 /* Figure caption are way too pale grey, bad contrast on white background */
-figcaption {
-  color: var(--caption-text-color);
+figcaption, .table caption,
+.column-margin figcaption {
+  color: var(--bs-caption-color);
 }
 
 /*

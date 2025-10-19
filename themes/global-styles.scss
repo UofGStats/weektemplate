@@ -99,4 +99,9 @@ main > header + p {
   user-select: none;
 }
 
+// Override figcaption colour using bootstrap colour to improve contrast
 
+figcaption, .table caption,
+.column-margin figcaption {
+  color: var(--bs-caption-color);
+}

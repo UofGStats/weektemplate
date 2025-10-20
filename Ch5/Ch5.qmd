@@ -112,6 +112,7 @@ When presenting the user never sees the code anyway.
 An alternative to having a large space-using question, is to hide inside a collapsed box like the following.
 
 :::{.Task collapse=true}
+
 {{< iframe
   path = "/resources/numbas/Q13/index.html" width="90%" height="900px" >}}
 :::

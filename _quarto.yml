@@ -13,7 +13,7 @@ extensions:
 knitr: true
 
 #bibliography: references.bib
-reference-location: margin
+reference-location: block
 
 course_title: "Test Course"
 metadata-files: 

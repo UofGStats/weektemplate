@@ -7,6 +7,7 @@ extensions:
   - ute/custom-numbered-blocks
   - david-hodge/stats-uog
   - david-hodge/invis
+  - david-hodge/iframe
   - quarto-ext/fontawesome
   - quarto-ext/latex-environment
 
@@ -79,6 +80,8 @@ filters:
   - fontawesome # This loads a large bank of nice icons
   - custom-numbered-blocks
   - invis
+  - iframe
+  
 environments: [term] # See latex-environment above
 commands: [term]
 use-rsvg-convert: true

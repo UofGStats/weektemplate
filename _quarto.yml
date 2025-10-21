@@ -68,10 +68,12 @@ website:
         href: Ch2/Ch2.html
       - text: "How to link (edit)"
         href: Ch3/Ch3.html
-      - text: "Nice boxes (edit)"
+      - text: "Nicer boxes and Python (edit)"
         href: Ch4/Ch4.html
-      - text: "Spare (edit)"
+      - text: "Webexercises and Numbas (edit)"
         href: Ch5/Ch5.html
+      - text: "Invisible text (edit)"
+        href: Ch6/Ch6.html
       
 
 # My filters

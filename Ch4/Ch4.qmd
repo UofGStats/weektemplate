@@ -8,7 +8,7 @@ reticulate::use_condaenv(condaenv = "quarto", conda = "auto", required = TRUE)
 #py_config()
 ```
 
-# Chapter 4 - Nicer boxes
+# Chapter 4 - Nicer boxes and Python
 
 This chapter shows off some nice coloured boxes. They come from the `custom-numbered-blocks` extension. First you need to install the extension `quarto add ute/custom-numbered-blocks`.
 

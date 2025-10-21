@@ -64,3 +64,4 @@ plot(cars)
 {{< invis end block >}}
 
 The code and output plot above are fully hidden in the HTML. Likely fully visible in the PDF.
+

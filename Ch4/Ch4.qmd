@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-```{r python-setup, echo=FALSE, results='hide'}
-#| code-fold: false
-Sys.getenv("PATH")
-Sys.setenv(PATH = paste("F:\\miniconda3\\condabin", Sys.getenv("PATH"), sep=";"))
-#system("conda --version")
-library(reticulate)
-reticulate::use_condaenv(condaenv = "quarto", conda = "auto", required = TRUE)
-#py_config()
-=======
 ```{r}
 #| label: python-setup-real
 #| echo: false
@@ -15,7 +5,6 @@ reticulate::use_condaenv(condaenv = "quarto", conda = "auto", required = TRUE)
 
 library(reticulate)
 reticulate::use_condaenv(condaenv = "quarto", conda = "auto", required = TRUE)
->>>>>>> Stashed changes
 ```
 
 # Chapter 4 - Nicer boxes and Python
@@ -278,8 +267,5 @@ plt.show()
 
 :::
 
-<<<<<<< Updated upstream
 The output images from these pieces of code have their own labels namely `@fig-rnorm` and `@fig-polar` which reference as @fig-rnorm and @fig-polar.
-=======
-The output images from these pieces of code have their own labels namely `@fig-rnorm` and `@fig-polar` which reference as @fig-rnorm and @fig-polar.
->>>>>>> Stashed changes
+

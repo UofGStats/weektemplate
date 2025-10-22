@@ -113,9 +113,9 @@ format:
     include-in-header: ["include-in-header.tex"]
     code-block-overflow: wrap
     geometry:
-      - left=10mm
+      #- left=10mm
       - marginparwidth=60mm
-      - textwidth=130mm
+      #- textwidth=130mm
       - marginparsep=5mm
 
 

@@ -1,5 +1,5 @@
 sidebar: Weekly
-week_title: vwxyz
+week_title: Week 6
 number-offset: 5
 filters:
    - stats-uog
@@ -12,7 +12,6 @@ stats-uog:
 format:
   html: default
   pdf:
-    keep-tex: true
     include-in-header:
       text: |
         \setcounter{chapter}{5}

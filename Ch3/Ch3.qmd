@@ -2,7 +2,7 @@
 
 No linking between chapters, they are separate. Nor to equations outside this chapter.
 
-## Section One
+## Handling videos
 
 One way to include videos is to use the Quarto syntax used to insert any figures, where you write
 

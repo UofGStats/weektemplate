@@ -2,13 +2,10 @@
 #| include: false
 #| eval: true
 library(reticulate)
-# New way to say which packages/libraries we want access to
-py_require(packages = c("pandas, matplotlib"))
-
-# This creates an ephemeral environment once per R session and loads libraries
-# Would be faster to manually create an environment, install libraries to it
-# then point to it with the use_python() or use_condaenv etc.. commands
-# however then would need to edit it if you work on different machines
+#These next two lines need to run ONCE on your machine
+#reticulate::virtualenv_create("r-quarto")
+#reticulate::py_install(c("pandas","seaborn","matplotlib","numpy"), envname = "r-quarto")
+reticulate::use_virtualenv("r-quarto", required = TRUE)
 
 ```
 

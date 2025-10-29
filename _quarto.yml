@@ -85,7 +85,7 @@ filters:
   - iframe
   
 environments: [term] # See latex-environment above
-commands: [term]
+commands: [term] # Provides custom inline environments e.g. []{.term} and \term{}
 use-rsvg-convert: true
 number-depth: 3
 format:

@@ -5,7 +5,7 @@ project:
 
 extensions:
   - ute/custom-numbered-blocks
-  - david-hodge/stats-uog
+  - UofGStats/acc-tools
   - david-hodge/invis
   - david-hodge/iframe
   - quarto-ext/fontawesome

@@ -2,7 +2,7 @@ sidebar: Weekly
 week_title: defgh
 number-offset: 1
 filters:
-   - stats-uog
+   - acc-tools
 
 format:
   html: default

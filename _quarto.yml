@@ -3,11 +3,12 @@ project:
   output-dir: _preview
   type: website
 
+### YOU WILL WANT TO DEFINE THE course_title ON THE NEXT LINE ###
 course_title: "Test Course"
 pagetitle: "{{< meta course_title >}} - {{< meta week_title >}}" # This will be the browser tab's name
 metadata-files: 
   - _numbered-boxes.yml # Definitions for Ute Hahn's coloured boxes extension
-                        # the contents can be pasted here if desired instead
+                        # the contents can be pasted here if desired instead, this is neater
 
 
 extensions:

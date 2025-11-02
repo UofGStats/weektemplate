@@ -78,7 +78,7 @@ website:
       
 # My filters
 filters:
-  - latex-environment # This saves having to type data-latex="" all the time
+  - latex-environment # This saves having to type data-latex="" all the time (and enables 'term' styling)
   - fontawesome # This loads a large bank of nice icons
   - custom-numbered-blocks # These are the nice coloured boxes
   - invis # This allows hidden text

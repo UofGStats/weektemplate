@@ -283,7 +283,9 @@ plt.show()
 ## R
 
 ```{r}
-#| label: r-cubic-plot
+#| label: fig-r-cubic-plot
+#| fig-cap: $f(x)=x^3$ between $-10$ and $+10$
+#| fig-alt: "A plot of x-cubed between -10 and 10"
 #| 
 x <- seq(-10,10, by = 0.1)
 y <- x ^ 3
@@ -292,7 +294,9 @@ plot(x, y, type = "l")
 
 ## Python
 ```{python}
-#| label: py-cubic-plot
+#| label: fig-py-cubic-plot
+#| fig-cap: $f(x)=x^3$ between $-10$ and $+10$
+#| fig-alt: "A plot of x-cubed between -10 and 10"
 #| 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -307,3 +311,4 @@ plt.show()
 :::
 
 The output images from these pieces of code have their own labels namely `@fig-rnorm` and `@fig-polar` which reference as @fig-rnorm and @fig-polar.
+

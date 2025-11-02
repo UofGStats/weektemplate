@@ -107,7 +107,7 @@ format:
   pdf: # Settings for PDF output
     documentclass: scrreprt
     default-image-extension: png
-    keep-tex: false # Set to true for debugging the tex file
+    keep-tex: true # Useful to be set to true for debugging the tex file
     papersize: a4
     number-sections: true
     include-in-header: ["include-in-header.tex"] # Latex macros and more. Macros need duplicating here (see above)

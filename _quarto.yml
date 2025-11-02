@@ -1,7 +1,14 @@
 project:
-  resources: ["resources"] # List files/folders here which need copying to live version, but which aren't explicitly references (e.g. numbas folders)
+  resources: ["resources"] # List files/folders here which need copying to live version, but which aren't explicitly referenced (e.g. numbas folders)
   output-dir: _preview
   type: website
+
+course_title: "Test Course"
+pagetitle: "{{< meta course_title >}} - {{< meta week_title >}}" # This will be the browser tab's name
+metadata-files: 
+  - _numbered-boxes.yml # Definitions for Ute Hahn's coloured boxes extension
+                        # the contents can be pasted here if desired instead
+
 
 extensions:
   - ute/custom-numbered-blocks
@@ -13,13 +20,8 @@ extensions:
 
 knitr: true
 
-#bibliography: references.bib
-reference-location: block
-
-course_title: "Test Course"
-metadata-files: 
-  - _numbered-boxes.yml # Definitions for Ute Hahn's coloured boxes extension
-                        # the contents can be pasted here if desired instead
+#bibliography: references.bib # unused
+reference-location: block # Print internal annotations/refs below block where they appear.
 
 # Defines a new float so we can use :::{#vid-<label>} and it calls it a "Video"
 crossref:
@@ -28,8 +30,6 @@ crossref:
       reference-prefix: Video
       key: vid
       latex-env: video
-
-pagetitle: "{{< meta course_title >}} - {{< meta week_title >}}"
 
 website:
   page-footer:
@@ -75,47 +75,46 @@ website:
       - text: "Invisible text (edit)"
         href: Ch6/Ch6.html
       
-
 # My filters
 filters:
   - latex-environment # This saves having to type data-latex="" all the time
   - fontawesome # This loads a large bank of nice icons
-  - custom-numbered-blocks
-  - invis
-  - iframe
+  - custom-numbered-blocks # These are the nice coloured boxes
+  - invis # This allows hidden text
+  - iframe # This allows embedding iframe, e.g. Numbas questions
   
-environments: [term] # See latex-environment above
-commands: [term]
-use-rsvg-convert: true
-number-depth: 3
+environments: [term] # Needs latex-environment above (and see below)
+commands: [term] # Allows consistent highlighting of key terms
+use-rsvg-convert: true # Auto-convert images into svg format
+number-depth: 3 # How deep to number things?
 format:
-  html:
-    defaults: [resources/latex/global-maths-definitions.yaml]
+  html: # Settings for HTML output
+    defaults: [resources/latex/global-maths-definitions.yaml] # Latex macros (see below)
     default-image-extension: svg
     highlight-style: a11y
-    mainfont: "Atkinson Hyperlegible"
+    mainfont: "Atkinson Hyperlegible" # Primary font used
     code-overflow: wrap
-    toc: true
-    toc-location: right
-    toc-depth: 4
+    toc: true # Table of contents true/false
+    toc-location: right # Location of table of contents
+    toc-depth: 4 # How deep to go in table of contents
     number-sections: true
-    respect-user-color-scheme: true
+    respect-user-color-scheme: true # Permit auto-dark mode if desired set by user
     theme:
       light: [themes/load-light.scss, cosmo]
-      dark: [superhero, themes/load-dark.scss]
-    #include-after-body: disable-tippy-tab.js
-  pdf:
+      dark: [superhero, themes/load-dark.scss] # Remove this row to totally remove
+    #include-after-body: disable-tippy-tab.js # Script to fully disable hover to show HTML links
+  pdf: # Settings for PDF output
     documentclass: scrreprt
     default-image-extension: png
-    keep-tex: false
+    keep-tex: false # Set to true for debugging the tex file
     papersize: a4
     number-sections: true
-    include-in-header: ["include-in-header.tex"]
+    include-in-header: ["include-in-header.tex"] # Latex macros and more. Macros need duplicating here (see above)
     code-block-overflow: wrap
-    geometry:
-      #- left=10mm
+    geometry: # Customize the margins of the PDF here.
+      #- left=10mm # Narrow left margin
       - marginparwidth=60mm
-      #- textwidth=130mm
+      #- textwidth=130mm # Super-wide right margin for annotations
       - marginparsep=5mm
 
 

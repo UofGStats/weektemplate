@@ -199,21 +199,27 @@ Edit `themes/dark-styles-boxes.scss`. Each box type needs an `@include` call, us
 
 The template separates styling based on purpose and mode:
 
-- **UofG colours**: `themes/_colours.scss`  
-- **Light-mode styles**: `themes/light-styles.css`  
-- **Dark-mode styles**: `themes/dark-styles.css`  
-- **Global styles (both modes)**: `themes/global-styles.scss`  
+* **UofG colours**: `themes/_colours.scss`
+* **Light-mode styles**: `themes/light-styles.css`
+* **Dark-mode styles**: `themes/dark-styles.css`
+* **Global styles (both modes)**: `themes/global-styles.scss`
 
 Use these files to customize HTML typography, spacing, colours, and other visual elements while keeping light and dark modes separate.
 
 ### For PDF
 
-Some elements of the PDF styles are carried over automatically from HTML. Unsupported elements can have their styles customized by supplementing the TeX pre-amble. The file `include-in-header.tex` is the global additional pre-amble, should you wish to add any additional commands to it.
+Some elements of the PDF output are carried over automatically from HTML styles. Unsupported elements can be customized by supplementing the TeX preamble. The file `include-in-header.tex` is the global additional preamble, and you can add any additional LaTeX commands here.
 
 ### LaTeX macros
 
-Should you be trying to customize your latex commands and macros, the best approach I have found to keep things consistent unfortunately requires some duplication. Look inside the file `resources/latex/mymacros.sty` to see the macros for the HTML display. This file also tells you to duplicate any such commands inside `include-in-header.tex` too.
+To customize LaTeX commands and macros while keeping things consistent:
 
+* Inspect `resources/latex/mymacros.sty` to see the macros used for HTML display.
+* Any commands defined there should also be duplicated inside `include-in-header.tex` for PDF output, since HTML and PDF rendering use separate pipelines.
+
+This approach ensures your LaTeX macros work consistently across HTML and PDF outputs.
+
+Note that only macros compatible with MathJax can be rendered in HTML output.
 
 
 ---

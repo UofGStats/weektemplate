@@ -191,6 +191,18 @@ Edit `themes/dark-styles-boxes.scss`. Each box type needs an `@include` call, us
 
 *It's possible a future version of this extension will do away with the need to control light and dark mode colours in different places. Indeed if you fully disable the dark mode then you only need one.*
 
+### Usage
+
+These coloured boxes are created in your notes with standard Quarto syntax. You create a box with syntax like this:
+
+```markdown
+:::{.Example}
+Contents goes here
+:::
+```
+The name `.Example` refers to the name `Example` defined in the above documents. You can also add a custom title to the box as usual with a `##` line at the stop. Full documentation for use of these boxes is linked above.
+
+
 ---
 
 ## Template colours and styles for HTML
@@ -200,8 +212,8 @@ Edit `themes/dark-styles-boxes.scss`. Each box type needs an `@include` call, us
 The template separates styling based on purpose and mode:
 
 * **UofG colours**: `themes/_colours.scss`
-* **Light-mode styles**: `themes/light-styles.css`
-* **Dark-mode styles**: `themes/dark-styles.css`
+* **Light-mode styles**: `themes/light-styles.scss`
+* **Dark-mode styles**: `themes/dark-styles.scss`
 * **Global styles (both modes)**: `themes/global-styles.scss`
 
 Use these files to customize HTML typography, spacing, colours, and other visual elements while keeping light and dark modes separate.

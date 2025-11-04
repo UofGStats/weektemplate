@@ -7,7 +7,7 @@ filters:
     - acc-tools
 ---
 ```
-This loads the bonus accessibility features extension I have made.
+This loads the bonus accessibility features extension. There is a global code toggle button bottom left, and the R and P keyboard buttons will switch **all** code tabs simultaneously to the chosen language.
 
 Documentation for it can be found here: [UofGStats/acc-tools repo](https://github.com/UofGStats/acc-tools)
 

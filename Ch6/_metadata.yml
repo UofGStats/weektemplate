@@ -2,11 +2,11 @@ sidebar: Weekly
 week_title: Week 6
 number-offset: 5
 filters:
-   - stats-uog
+   - acc-tools
 
 invis: (anything except 'debug' or 'false' will hide text)
 
-stats-uog:
+acc-tools:
   global-toggle: false
 
 format:

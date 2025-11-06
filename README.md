@@ -1,4 +1,4 @@
-# UofG Stats Weekly Quarto Template
+# UofGStats Weekly Quarto Template
 
 This document explains how to install, set up, and customize the UofG Stats weekly Quarto template.  
 

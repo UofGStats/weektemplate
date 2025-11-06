@@ -1,0 +1,14 @@
+sidebar: Weekly
+week_title: Intro to GLMs
+number-offset: 1
+filters:
+    - acc-tools
+
+format:
+  html: default
+  pdf:
+    include-in-header:
+      text: |
+        \setcounter{chapter}{1}
+    keep-tex: true
+    output-file: Stats5098-Week2.pdf # This is the filename for the pdf if we want to customize it

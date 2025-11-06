@@ -1,0 +1,2416 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  a4paper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+\usepackage{xcolor}
+\usepackage[marginparwidth=60mm,marginparsep=5mm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{3}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+% This is used for pdf compilation from qmd.
+% Any special LaTeX commands should be updated in parallel with mymacros.sty which is used for html compilation.
+% All rows *might* need an HTML equivalent. Those at the bottom of this file are identical.
+% This is how the two files are included in the _quarto.yaml header of the qmd file
+%format:
+%  html:
+%    defaults: [resources/latex/global-maths-definitions.yaml]
+%  pdf:
+%   include-in-header: ["include-in-header.tex"]
+
+% the 'defaults' above secretly points to mymacros.sty where they really live.
+
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\usepackage[skins,breakable]{tcolorbox}
+
+% Code to reduce width of code blocks in PDF to encourage line wrapping
+\usepackage{fvextra}
+      \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+        breaklines,
+        breakanywhere,
+        breaknonspaceingroup,
+        commandchars=\\\{\},
+        fontsize=\small
+      }
+% Also line wrap in verbatim blocks
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,fontsize=\footnotesize}
+
+\usepackage{environ}
+
+% Below here is an old way to defining new custom coloured boxes.
+% We use nice extensions now.
+
+% \definecolor{goals-col}{RGB}{201, 232, 222}
+% 
+% % For defining new callout boxes
+% % HTML version is in CSS file
+% % Need to turn on goals and goals-header as environments using the latex-environment extension for quarto
+% % This is designed to work for the following fenced div syntax:
+% % :::{.goals}
+% % ::::{.goals-header}
+% % TITLE
+% % ::::
+% % Actual box contents
+% % :::
+% \newtcolorbox{goals}[1][]{notitle, top=0pt, boxsep=0pt, coltitle=black!90!white, colback=white, colframe=goals-col,#1}
+% \NewEnviron{goals-header}{\tcbsubtitle[top=1mm, bottom=1mm]{\BODY}}
+% % It works by creating a box with no title. Then no spacing. Then a subtitle defined later.
+
+% Increasing spacing between rows of tables
+\def\arraystretch{2}
+
+% Syntax for highlighting my KEY TERMS
+% HTML version is included in css for .term.
+% These are created with Quarto inline code
+% like [CONTENTS]{.term} by the latex-environment package
+\newcommand{\term}[1]{\textbf{#1}}
+
+% Added to do derivatives, custom commands for HTML
+% read by MathJax are inserted via diff.macro
+% must keep naming in sync with esdiff package
+\usepackage{esdiff}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BELOW HERE ARE COMMANDS SHARED WITH THE HTML OUTPUT %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% KEEP THESE UPDATED ALSO IN THE MYMACROS.STY FILE   %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Adding some operator names missing by default
+\DeclareMathOperator{\cosec}{cosec}
+\DeclareMathOperator{\powop}{pow} %\newcommand{\pow}{\operatorname{pow}}
+\definecolor{frog}{rgb}{1,0,0}
+\newcommand{\dx}{\,\text{d}x}
+\newcommand{\du}{\,\text{d}u}
+\newcommand{\dy}{\,\text{d}y}
+\newcommand{\dt}{\,\text{d}t}
+
+\setcounter{chapter}{1}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{plain}
+\@ifundefined{c@chapter}{\newfloat{video}{h}{lovid}}{\newfloat{video}{h}{lovid}[chapter]}
+\floatname{video}{Video}
+\newcommand*\listofvideos{\listof{video}{List of Videos}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+%%%% ---foldboxy preamble ----- %%%%%
+
+\definecolor{fbx-default-color1}{HTML}{c7c7d0}
+\definecolor{fbx-default-color2}{HTML}{a3a3aa}
+
+\definecolor{fbox-color1}{HTML}{c7c7d0}
+\definecolor{fbox-color2}{HTML}{a3a3aa}
+
+% arguments: #1 typelabelnummer: #2 titel: #3
+\newenvironment{fbx}[3]{\begin{tcolorbox}[enhanced, breakable,%
+attach boxed title to top*={xshift=1.4pt},
+boxed title style={boxrule=0.0mm, fuzzy shadow={1pt}{-1pt}{0mm}{0.1mm}{gray}, arc=.3em, rounded corners=east, sharp corners=west}, colframe=#1-color2, colbacktitle=#1-color1, colback = white, coltitle=black,  titlerule=0mm, toprule=0pt, bottomrule=.7pt, leftrule=.3em, rightrule=0pt, outer arc=.3em,  arc=0pt,	 sharp corners = east, left=.5em, bottomtitle=1mm, toptitle=1mm,title=\textbf{#2}\hspace{0.5em}{#3}]}
+{\end{tcolorbox}}
+
+% boxed environment with right border
+\newenvironment{fbxSimple}[3]{\begin{tcolorbox}[enhanced, breakable,%
+attach boxed title to top*={xshift=1.4pt},
+boxed title style={boxrule=0.0mm, fuzzy shadow={1pt}{-1pt}{0mm}{0.1mm}{gray}, arc=.3em, rounded corners=east, sharp corners=west}, colframe=#1-color2, colbacktitle=#1-color1, colback = white, coltitle=black,  titlerule=0mm, toprule=0pt, bottomrule=.7pt, leftrule=.3em, rightrule=.7pt, outer arc=.3em,  	left=.5em, right=.5em, bottomtitle=1mm, toptitle=1mm,title=\textbf{#2}\hspace{0.5em}{#3}]}
+{\end{tcolorbox}}
+
+%%%% --- end foldboxy preamble ----- %%%%%
+%%==== colors from yaml ===%
+\definecolor{Answer-color1}{HTML}{d18888}
+\definecolor{Answer-color2}{HTML}{660000}
+\definecolor{Key-color1}{HTML}{ff7833}
+\definecolor{Key-color2}{HTML}{be4d00}
+\definecolor{Corollary-color1}{HTML}{7fbad7}
+\definecolor{Corollary-color2}{HTML}{005398}
+\definecolor{Example-color1}{HTML}{b2dac4}
+\definecolor{Example-color2}{HTML}{004721}
+\definecolor{Task-color1}{HTML}{948bde}
+\definecolor{Task-color2}{HTML}{584eab}
+\definecolor{Weblink-color1}{HTML}{c7f3fc}
+\definecolor{Weblink-color2}{HTML}{7ee3f8}
+\definecolor{Supplement-color1}{HTML}{c7f3fc}
+\definecolor{Supplement-color2}{HTML}{7ee3f8}
+\definecolor{Definition-color1}{HTML}{ffdc36}
+\definecolor{Definition-color2}{HTML}{ffb948}
+\definecolor{Theorem-color1}{HTML}{948bde}
+\definecolor{Theorem-color2}{HTML}{584eab}
+\definecolor{Outcomes-color1}{HTML}{00b5d1}
+\definecolor{Outcomes-color2}{HTML}{005398}
+\definecolor{Lemma-color1}{HTML}{b2dac4}
+\definecolor{Lemma-color2}{HTML}{004721}
+\definecolor{Video-color1}{HTML}{c7f3fc}
+\definecolor{Video-color2}{HTML}{7ee3f8}
+%=============%
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\author{}
+\date{}
+\begin{document}
+
+
+\chapter{Introduction to Generalised Linear
+Models}\label{introduction-to-generalised-linear-models}
+
+\phantomsection\label{Outcomesux2a-1.1}
+\begin{fbxSimple}{Outcomes}{Learning Outcomes}{}
+\phantomsection\label{Outcomes*-1.1}
+
+\begin{itemize}
+\item
+  See how a generalised linear model differs from a linear model,
+  including the approach taken in logistic regression
+\item
+  Meet the exponential family of distributions
+\item
+  Be able to identify the key components of a generalised linear model
+  (GLM)
+\item
+  Appreciate the use of likelihoods, maximum likelihood estimation, and
+  the definition of deviance in GLM modelling
+\item
+  Appreciate the consequences of using maximum likelihood estimation for
+  inference, including confidence intervals, and the use of deviance in
+  likelihood ratio tests
+\end{itemize}
+
+\emph{These outcomes are further reinforced with concrete examples in
+coming weeks.}
+
+\end{fbxSimple}
+
+\section{Introduction and motivating
+examples}\label{introduction-and-motivating-examples}
+
+In this course we will extend the theory of linear regression models to
+non-normal responses. Before we begin with introducing the class of
+models known as Generalised Linear Models (GLMs), we will briefly
+illustrate why linear models are not sufficient for all types of data.
+Throughout the course, we will see how we can deal with a variety of
+situations where the linear model may not be adequate.
+
+The main objective of this week's learning material is to introduce
+Generalised Linear Models (GLMs), which extend the linear model
+framework to outcome variables that don't follow the normal
+distribution. GLMs can be used to model non-normal continuous outcome
+variables, but they are most frequently used to model \term{binary},
+\term{categorical} or \term{count data}. We will focus on these latter
+types of outcome variables. To see why extensions to the normal linear
+model are needed, let's look at a couple of examples, one where the
+normal linear model is appropriate and one where it's not.
+
+\phantomsection\label{bollywood-box-office-revenue}
+\begin{fbxSimple}{Example}{Example 1: }{Bollywood box office revenue}
+\phantomsection\label{bollywood-box-office-revenue}
+
+Possibly the simplest scenario of a predictive model is when we want to
+predict an outcome variable based on a predictor which displays a linear
+relationship to the variable of interest. Consider the following dataset
+on Bollywood film revenues (sourced from
+\url{http://www.bollymoviereviewz.com}) which contains data on 190 films
+made during the period 2013-2017. We would like to predict the gross
+revenue of a film from the film's budget. Both the gross revenue and the
+budget are measured in
+\href{https://en.wikipedia.org/wiki/Crore}{crore}. Here are the first
+few rows of the data:
+
+\pagebreak
+
+\subsection{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bollywood }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{\textquotesingle{}https://github.com/UofGAnalyticsData/APM/raw/refs/heads/main/bollywood\_boxoffice.csv\textquotesingle{}}\NormalTok{, }\AttributeTok{fileEncoding =} \StringTok{"latin1"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(bollywood)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                         Movie  Gross Budget
+1                  Ek Villain   95.64   36.0
+2                  Humshakals   55.65   77.0
+3                     Holiday  110.01   90.0
+4                       Fugly   11.16   16.0
+5                 City Lights    5.19    9.5
+6 Kuku Mathur Ki Jhand Ho Gayi   2.23    4.5
+\end{verbatim}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\NormalTok{bollywood }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{"bollywood\_boxoffice.csv"}\NormalTok{, encoding }\OperatorTok{=} \StringTok{\textquotesingle{}latin{-}1\textquotesingle{}}\NormalTok{)}
+\NormalTok{bollywood.head()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+          Movie   Gross  Budget
+0   Ek Villain    95.64    36.0
+1   Humshakals    55.65    77.0
+2      Holiday   110.01    90.0
+3        Fugly    11.16    16.0
+4  City Lights     5.19     9.5
+\end{verbatim}
+
+We can plot the gross revenue against the budget to explore the
+relationship between the two variables.
+
+\subsection{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b.plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ bollywood, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Gross, }\AttributeTok{x =}\NormalTok{ Budget)) }\SpecialCharTok{+}
+          \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{col =} \StringTok{"\#66a61e"}\NormalTok{) }\SpecialCharTok{+}
+          \FunctionTok{scale\_x\_continuous}\NormalTok{(}\StringTok{"Budget (crore)"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{scale\_y\_continuous}\NormalTok{(}\StringTok{"Gross (crore)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/r-budget-gross-1.pdf}}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sns.scatterplot(data}\OperatorTok{=}\NormalTok{bollywood, x}\OperatorTok{=}\StringTok{\textquotesingle{}Budget\textquotesingle{}}\NormalTok{, y}\OperatorTok{=}\StringTok{\textquotesingle{}Gross\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\StringTok{"\#66a61e"}\NormalTok{)}
+\NormalTok{plt.xlabel(}\StringTok{"Budget (crore)"}\NormalTok{)}
+\NormalTok{plt.ylabel(}\StringTok{"Gross (crore)"}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/python-budget-gross-1.pdf}}
+
+}
+
+\caption{Hello}
+
+\end{figure}%
+
+Looking at the scale of the values on both the horizontal and vertical
+axes, we might want to transform the data by taking logs.
+
+\subsection{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b.plot.l }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ bollywood, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{log10}\NormalTok{(Gross), }\AttributeTok{x =} \FunctionTok{log10}\NormalTok{(Budget))) }\SpecialCharTok{+}
+          \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{col =} \StringTok{"\#1b9e77"}\NormalTok{) }\SpecialCharTok{+}
+          \FunctionTok{scale\_x\_continuous}\NormalTok{(}\StringTok{"log(Budget) (crore)"}\NormalTok{) }\SpecialCharTok{+}
+          \FunctionTok{scale\_y\_continuous}\NormalTok{(}\StringTok{"log(Gross) (crore)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/r-budget-gross-log10-theme-1.pdf}}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+
+\NormalTok{bollywood[}\StringTok{\textquotesingle{}log\_Budget\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ np.log10(bollywood[}\StringTok{\textquotesingle{}Budget\textquotesingle{}}\NormalTok{])}
+\NormalTok{bollywood[}\StringTok{\textquotesingle{}log\_Gross\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ np.log10(bollywood[}\StringTok{\textquotesingle{}Gross\textquotesingle{}}\NormalTok{])}
+
+\NormalTok{sns.set\_style(}\StringTok{"white"}\NormalTok{)}
+\NormalTok{sns.scatterplot(data}\OperatorTok{=}\NormalTok{bollywood, x}\OperatorTok{=}\StringTok{\textquotesingle{}log\_Budget\textquotesingle{}}\NormalTok{, y}\OperatorTok{=}\StringTok{\textquotesingle{}log\_Gross\textquotesingle{}}\NormalTok{, color}\OperatorTok{=}\StringTok{"\#66a61e"}\NormalTok{)}
+\NormalTok{plt.xlabel(}\StringTok{"log10(Budget) (crore)"}\NormalTok{)}
+\NormalTok{plt.ylabel(}\StringTok{"log10(Gross) (crore)"}\NormalTok{)}
+\NormalTok{plt.title(}\StringTok{"Log{-}Log Plot of Budget vs Gross"}\NormalTok{)}
+\NormalTok{plt.tight\_layout()}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/python-budget-gross-log10-1.pdf}}
+
+Now let's fit a model with the \(\log_{10}\) transformed gross revenue
+as the response (\(Y_{i}\)) and the \(\log_{10}\) transformed budget
+(\(x_{i}\)) as the explanatory/predictor variable.
+
+\subsection{R}
+
+We can use the \texttt{lm()} function to fit this linear model in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bol.lm }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\FunctionTok{log10}\NormalTok{(Gross) }\SpecialCharTok{\textasciitilde{}} \FunctionTok{log10}\NormalTok{(Budget), }\AttributeTok{data =}\NormalTok{ bollywood)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ statsmodels.formula.api }\ImportTok{as}\NormalTok{ smf}
+\NormalTok{bol\_lm }\OperatorTok{=}\NormalTok{ smf.ols(}\StringTok{\textquotesingle{}np.log10(Gross) \textasciitilde{} np.log10(Budget)\textquotesingle{}}\NormalTok{, data}\OperatorTok{=}\NormalTok{bollywood).fit()}
+\end{Highlighting}
+\end{Shaded}
+
+The model equation in mathematical notation is
+\[E(Y_{i}) = \mu_i= \beta_0 + \beta_1 x_{i}; ~~~ \text{where the}~ Y_{i} \text{ are independent }  N(\mu_{i}, \sigma^2),~~~i=1,...,190 \]
+The model fit is shown below:
+
+\subsection{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(bol.lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+lm(formula = log10(Gross) ~ log10(Budget), data = bollywood)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.45702 -0.24470  0.00807  0.24600  1.73413 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   -0.62549    0.12338  -5.069 9.51e-07 ***
+log10(Budget)  1.31955    0.07887  16.730  < 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.3921 on 188 degrees of freedom
+Multiple R-squared:  0.5982,    Adjusted R-squared:  0.5961 
+F-statistic: 279.9 on 1 and 188 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(bol\_lm.summary2())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+                 Results: Ordinary least squares
+=================================================================
+Model:              OLS              Adj. R-squared:     0.596   
+Dependent Variable: np.log10(Gross)  AIC:                185.4400
+Date:               2025-11-06 11:52 BIC:                191.9340
+No. Observations:   190              Log-Likelihood:     -90.720 
+Df Model:           1                F-statistic:        279.9   
+Df Residuals:       188              Prob (F-statistic): 4.49e-39
+R-squared:          0.598            Scale:              0.15376 
+-----------------------------------------------------------------
+                   Coef.  Std.Err.    t    P>|t|   [0.025  0.975]
+-----------------------------------------------------------------
+Intercept         -0.6255   0.1234 -5.0695 0.0000 -0.8689 -0.3821
+np.log10(Budget)   1.3195   0.0789 16.7298 0.0000  1.1640  1.4751
+-----------------------------------------------------------------
+Omnibus:              14.570       Durbin-Watson:          1.711 
+Prob(Omnibus):        0.001        Jarque-Bera (JB):       38.796
+Skew:                 0.181        Prob(JB):               0.000 
+Kurtosis:             5.184        Condition No.:          9     
+=================================================================
+Notes:
+[1] Standard Errors assume that the covariance matrix of the
+errors is correctly specified.
+\end{verbatim}
+
+We can visualise this regression model by plotting the data and fitted
+regression line:
+
+\subsection{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b.plot.lm }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ bollywood, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =} \FunctionTok{log10}\NormalTok{(Gross), }\AttributeTok{x =} \FunctionTok{log10}\NormalTok{(Budget))) }\SpecialCharTok{+}
+          \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{col =}\StringTok{"\#1b9e77"}\NormalTok{) }\SpecialCharTok{+}
+          \FunctionTok{scale\_x\_continuous}\NormalTok{(}\StringTok{"log(Budget) (crore)"}\NormalTok{) }\SpecialCharTok{+}
+          \FunctionTok{scale\_y\_continuous}\NormalTok{(}\StringTok{"log(Gross) (crore)"}\NormalTok{) }\SpecialCharTok{+}
+          \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{colour=}\StringTok{"\#e7298a"}\NormalTok{, }\AttributeTok{se=}\ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+`geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/r-lm-log10-gross-budget-bestfit-theme-1.pdf}}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sns.set\_theme(style}\OperatorTok{=}\StringTok{"white"}\NormalTok{)}
+\NormalTok{g }\OperatorTok{=}\NormalTok{ sns.lmplot(}
+\NormalTok{    data}\OperatorTok{=}\NormalTok{bollywood,}
+\NormalTok{    x}\OperatorTok{=}\StringTok{\textquotesingle{}log\_Budget\textquotesingle{}}\NormalTok{,}
+\NormalTok{    y}\OperatorTok{=}\StringTok{\textquotesingle{}log\_Gross\textquotesingle{}}\NormalTok{,}
+\NormalTok{    scatter\_kws}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}color\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}\#1b9e77\textquotesingle{}}\NormalTok{\},}
+\NormalTok{    line\_kws}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}color\textquotesingle{}}\NormalTok{: }\StringTok{\textquotesingle{}\#e7298a\textquotesingle{}}\NormalTok{\},}
+\NormalTok{    ci}\OperatorTok{=}\VariableTok{None}\NormalTok{,}
+\NormalTok{    aspect}\OperatorTok{=}\DecValTok{2}
+\NormalTok{)}
+
+\NormalTok{g.set\_axis\_labels(}\StringTok{"log(Budget) (crore)"}\NormalTok{, }\StringTok{"log(Gross) (crore)"}\NormalTok{)}\OperatorTok{;}
+
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/python-lm-log10-gross-budget-bestfit-1.pdf}}
+
+\end{fbxSimple}
+
+\phantomsection\label{Task-1}
+\begin{fbxSimple}{Task}{Task 1}{}
+\phantomsection\label{Task-1}
+Using the fitted model equation, predict the gross revenue for a film
+with a budget of (i) 10, (ii) 50, and (iii) 100 crore.
+
+\emph{Hint: Remember that the variables have been log-transformed.}
+
+\end{fbxSimple}
+
+\phantomsection\label{Answer-1}
+\begin{fbxSimple}{Answer}{Answer 1}{}
+\phantomsection\label{Answer-1}
+
+For the \emph{Bollywood box office revenue} example, we can write down
+the fitted model equation from the \texttt{summary(bol.lm)}:
+\[\log_{10}(\text{Gross}) =-0.62549 + 1.31955\times \log_{10}(\text{Budget})\]
+
+We can use this equation to predict the gross revenue of a film by
+simply substituting the relevant budget value, and transforming the
+result from the log10 scale. Thus:
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\item
+  budget = 10: \[
+   \log_{10}(\text{Gross}) =-0.62549 + 1.31955\times \log_{10}(10) =  0.69406
+   \] \[
+   \Rightarrow \text{Gross}= 10^{0.69406} = 4.94379
+   \]
+\item
+  budget = 50: \[
+   \log_{10}(\text{Gross}) =-0.62549 + 1.31955\times \log_{10}(50) =  1.616386
+   \] \[
+   \text{Gross}= 10^{1.616386} = 41.34148
+   \]
+\item
+  budget = 100: \[
+  \log_{10}(\text{Gross}) =-0.62549 + 1.31955\times \log_{10}(100) =  2.01361
+  \] \[
+  \Rightarrow \text{Gross}= 10^{2.01361} = 103.1834
+  \]
+\end{enumerate}
+
+\end{fbxSimple}
+
+\phantomsection\label{gpa-and-admission-to-medical-school}
+\begin{fbxSimple}{Example}{Example 2: }{GPA and admission to medical school}
+\phantomsection\label{gpa-and-admission-to-medical-school}
+Now let's look at a different kind of dataset, where the outcome we want
+to predict is not continuous-valued but binary. This is a dataset on
+admissions to US medical schools, which gives the admission status, GPA
+and standardised test scores for 55 medical school applicants from a
+liberal arts college in the US Midwest and it can be loaded from the
+\texttt{Stat2Data} package in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(Stat2Data)}
+\FunctionTok{data}\NormalTok{(MedGPA)}
+\end{Highlighting}
+\end{Shaded}
+
+The first few rows of the data are given below.
+
+\begin{verbatim}
+  Accept Acceptance Sex BCPM  GPA VR PS WS BS MCAT Apps
+1      D          0   F 3.59 3.62 11  9  9  9   38    5
+2      A          1   M 3.75 3.84 12 13  8 12   45    3
+3      A          1   F 3.24 3.23  9 10  5  9   33   19
+4      A          1   F 3.74 3.69 12 11  7 10   40    5
+5      A          1   F 3.53 3.38  9 11  4 11   35   11
+6      A          1   M 3.59 3.72 10  9  7 10   36    5
+\end{verbatim}
+
+Let us look at a plot of acceptance against GPA, adding a bit of jitter
+to make overlapping points more visible.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{medgpa.plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ MedGPA, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Acceptance, }\AttributeTok{x =}\NormalTok{ GPA)) }\SpecialCharTok{+}
+               \FunctionTok{geom\_jitter}\NormalTok{(}\AttributeTok{width =}\DecValTok{0}\NormalTok{, }\AttributeTok{height =}\FloatTok{0.01}\NormalTok{, }\AttributeTok{alpha =}\FloatTok{0.5}\NormalTok{, }\AttributeTok{colour =}\StringTok{"\#984ea3"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We can add the linear regression line for \texttt{Acceptance} as a
+function of \texttt{GPA} to the plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{medgpa.plot }\SpecialCharTok{+} \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{,}
+                          \AttributeTok{fullrange =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{colour =} \StringTok{"\#984ea3"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+`geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/r-medgpa-scatterplot-lm-line-1.pdf}}
+
+The R code for fitting the model and the model output is shown below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{med.lm }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(Acceptance }\SpecialCharTok{\textasciitilde{}}\NormalTok{ GPA, }\AttributeTok{data=}\NormalTok{MedGPA)}
+\FunctionTok{summary}\NormalTok{(med.lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+lm(formula = Acceptance ~ GPA, data = MedGPA)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7510 -0.3717  0.1352  0.3059  0.8464 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -2.8240     0.7226  -3.908 0.000266 ***
+GPA           0.9483     0.2027   4.678 2.04e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4267 on 53 degrees of freedom
+Multiple R-squared:  0.2922,    Adjusted R-squared:  0.2788 
+F-statistic: 21.88 on 1 and 53 DF,  p-value: 2.043e-05
+\end{verbatim}
+
+In mathematical notation, the value of the independent response \(Y_i\)
+is equal to 1 if the \(i\)th applicant is accepted and \(Y_i=0\)
+otherwise, where \(x_i\) refers to to the \(i\)th applicant's college
+GPA for \(i=1,\dots,55\). The normal linear model assumes that the
+\(Y_i\) are independent \(N(\mu_i,\sigma^2)\) with
+\(\mu_i=\beta_0+\beta_1 x_i\), with the fitted model equation given by
+\(\hat{\mu}_i=-2.8240+0.9483x_i\).
+
+One issue with this fit is that the predicted values of the response can
+take any real values, while acceptance can only take the value 0 or 1.
+And it is hard to argue that a variable taking only values 0 and 1 can
+be reasonably assumed to be normally distributed.
+
+\end{fbxSimple}
+
+\phantomsection\label{mini-introduction-to-generalised-linear-models}
+\begin{fbxSimple}{Key}{Key Idea: }{Mini introduction to generalised linear models}
+\phantomsection\label{mini-introduction-to-generalised-linear-models}
+When faced with response variables which are clearly not normally
+distributed, and not even approximately normal, we take a multi-level
+approach.
+
+We will introduce a \term{logistic regression model} to target the
+\term{probability of acceptance}. To do this we will setup our modelling
+a specfic way, making certain assumptions.
+
+We begin by writing \(p_i=P(Y_i=1)\) to denote the probability of
+acceptance for the \(i\)th applicant. Then we assume that the \(Y_i\)
+are independent random variables which follow the \(\text{Bin}(1,p_i)\)
+(or Bernoulli(\(p_i)\)) distribution. Our big idea is that our
+regression model will choose \(p_i\) to be determined by the following
+equation:
+
+\[
+\log \left(\dfrac{p_i}{1-p_i} \right)=\beta_0+\beta_1 x_i,
+\]
+
+i.e.~we are still using a linear model underneath, but no longer
+directly fitting to the raw response variable values. The choice of
+function on the left will later be called a \term{link function}.
+
+After some algebraic re-arrangement, this is equivalent to:
+
+\[
+p_i=\dfrac{\exp(\beta_0+\beta_1 x_i)}{1+\exp(\beta_0+\beta_1 x_i)}.
+\]
+
+(\emph{You should check you know how to do this!})
+
+\end{fbxSimple}
+
+Now we can return and apply this idea to our GPA data example.
+
+\phantomsection\label{Example-3}
+\begin{fbxSimple}{Example}{Example 3}{}
+\phantomsection\label{Example-3}
+
+\subsection{R}
+
+We can fit this model in R using the \texttt{glm()} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{med.glm }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(Acceptance }\SpecialCharTok{\textasciitilde{}}\NormalTok{ GPA, }\AttributeTok{data =}\NormalTok{ MedGPA, }\AttributeTok{family =}\NormalTok{ binomial)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ statsmodels.api }\ImportTok{as}\NormalTok{ sm}
+\ImportTok{import}\NormalTok{ statsmodels.formula.api }\ImportTok{as}\NormalTok{ smf}
+
+\NormalTok{med\_glm }\OperatorTok{=}\NormalTok{ smf.glm(}\StringTok{\textquotesingle{}Acceptance \textasciitilde{} GPA\textquotesingle{}}\NormalTok{, data}\OperatorTok{=}\NormalTok{MedGPA, family}\OperatorTok{=}\NormalTok{sm.families.Binomial()).fit()}
+\end{Highlighting}
+\end{Shaded}
+
+The argument \texttt{family=binomial} specifies that \texttt{Acceptance}
+follows a binomial distribution, with probability of success \(p_i\)
+(i.e.~the probability of the \(i\)th applicant being accepted is
+\(p_i\)). In addition, the probability \(p_i\) is a function of \(x_i\)
+(i.e.~the probability of the \(i\)th applicant being accepted is a
+function of that applicant's GPA).
+
+The default \term{link function}, used is
+\(\log\left(\dfrac{p_i}{1-p_i}\right)\). This function is known as the
+\term{logit function}. You can explicitly request it (unnecessarily) in
+R by writing \texttt{family\ =\ binomial(link="logit")} instead of
+\texttt{family\ =\ binomial}.
+
+The model fit is shown below.
+
+\subsection{R}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(med.glm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+glm(formula = Acceptance ~ GPA, family = binomial, data = MedGPA)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -19.207      5.629  -3.412 0.000644 ***
+GPA            5.454      1.579   3.454 0.000553 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 75.791  on 54  degrees of freedom
+Residual deviance: 56.839  on 53  degrees of freedom
+AIC: 60.839
+
+Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+\subsection{Python}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(med\_glm.summary2())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+              Results: Generalized linear model
+==============================================================
+Model:              GLM              AIC:            60.8390  
+Link Function:      Logit            BIC:            -155.5496
+Dependent Variable: Acceptance       Log-Likelihood: -28.420  
+Date:               2025-11-06 11:52 LL-Null:        -37.896  
+No. Observations:   55               Deviance:       56.839   
+Df Model:           1                Pearson chi2:   51.4     
+Df Residuals:       53               Scale:          1.0000   
+Method:             IRLS                                      
+--------------------------------------------------------------
+              Coef.   Std.Err.    z    P>|z|   [0.025   0.975]
+--------------------------------------------------------------
+Intercept    -19.2065   5.6292 -3.4119 0.0006 -30.2396 -8.1734
+GPA            5.4542   1.5793  3.4535 0.0006   2.3588  8.5496
+==============================================================
+\end{verbatim}
+
+The regression equation for the fitted model is
+\[\log \left(\dfrac{\hat{p}_i}{1-\hat{p}_i}\right)=-19.207+5.454 x_i,\]
+
+or equivalently
+
+\[\hat{p}_i=\dfrac{\exp(-19.207+5.454 x_i)}{1+\exp(-19.207+5.454 x_i)}.\]
+
+The fitted curve for the probability of acceptance is shown below (in
+orange).
+
+\pandocbounded{\includegraphics[keepaspectratio]{Week2_files/figure-pdf/r-medgpa-acceptance-fitted-curve-1.pdf}}
+
+We can see that that this curve fits the data better than the linear
+regression line, and that it gives predicted probabilities between 0 and
+1, as desired. We could add predictors to the model to improve
+predictive performance -- we'll see more about that later.
+
+The regression equation we have obtained allows us to predict the
+acceptance probability for a given GPA.
+
+\end{fbxSimple}
+
+\phantomsection\label{Task-2}
+\begin{fbxSimple}{Task}{Task 2}{}
+\phantomsection\label{Task-2}
+Predict the acceptance probability for an applicant with a GPA of (i)
+2.5, (ii) 3 (iii) 4. First do this ``by hand'' using the regression
+equation, then in R using the \texttt{predict()} function.
+
+\emph{Hint: The} \texttt{predict()} \emph{function will return values on
+the linear predictor scale unless you specify}
+\texttt{type=\textquotesingle{}response\textquotesingle{}} \emph{which
+returns probabilities instead.}
+
+\end{fbxSimple}
+
+\phantomsection\label{Answer-2}
+\begin{fbxSimple}{Answer}{Answer 2}{}
+\phantomsection\label{Answer-2}
+
+In the \emph{GPA and admission to medical school} example, we can write
+down the fitted model equation from the \texttt{summary(med.glm)}:
+\[\log\left(\frac{p_i}{1-p_i}\right) =-19.207 + 5.454 \times \text{GPA}\]
+
+From the fitted equation, we can obtain the acceptance probability by
+solving for \(p_i\):
+
+\[\hat{p}_i = \frac{\exp(-19.207 + 5.454 \times \text{GPA})} {1+ \exp(-19.207 + 5.454 \times \text{GPA})} \]
+
+To predict the acceptance probability for an applicant we just need to
+substitute the specified GPA in the equation for \(\hat{p}_i\):
+
+\begin{enumerate}
+\def\labelenumi{(\roman{enumi})}
+\item
+  GPA = 2.5:
+  \[\hat{p}_i = \frac{\exp(-19.207 + 5.454 \times 2.5)} {1+ \exp(-19.207 + 5.454 \times 2.5)} \Rightarrow \hat{p}_i = 0.00378 \]
+\item
+  GPA = 3:
+  \[\hat{p}_i = \frac{\exp(-19.207 + 5.454 \times 3)} {1+ \exp(-19.207 + 5.454 \times 3)} \Rightarrow \hat{p}_i = 0.05494\]
+\item
+  GPA = 4:
+  \[\hat{p}_i = \frac{\exp(-19.207 + 5.454 \times 4)} {1+ \exp(-19.207 + 5.454 \times 4)} \Rightarrow \hat{p}_i = 0.93143\]
+\end{enumerate}
+
+Alternatively, we can use the \texttt{predict()} function in \texttt{R}
+as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{predict}\NormalTok{(med.glm, }\FunctionTok{data.frame}\NormalTok{(}\AttributeTok{GPA =} \FunctionTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)), }\AttributeTok{type =} \StringTok{\textquotesingle{}response\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+          1           2           3 
+0.003791903 0.054992029 0.931512655 
+\end{verbatim}
+
+\end{fbxSimple}
+
+\phantomsection\label{Weblink-1}
+\begin{fbxSimple}{Weblink}{External link 1}{}
+\phantomsection\label{Weblink-1}
+
+\url{https://goo.gl/mZHxyN}
+
+\begin{itemize}
+\tightlist
+\item
+  Section 2.3 from \emph{Mixed effects models and extensions in ecology
+  with R -Zuur et al.} discusses the appropriateness of the assumptions
+  of the linear model.
+\end{itemize}
+
+\end{fbxSimple}
+
+\section{What do the Bollywood box office and medical school admission
+examples have in
+common?}\label{what-do-the-bollywood-box-office-and-medical-school-admission-examples-have-in-common}
+
+In both cases we have independent observations and we want to predict an
+outcome of interest (gross revenue/acceptance) based on an explanatory
+variable (budget/GPA).
+
+In both cases we have a regression equation allowing us to predict the
+response from a given value of the predictor. However, in one case the
+response is assumed to follow the normal distribution, in the other the
+binomial distribution.
+
+In both cases we fit a model to the \emph{mean} of the response:
+
+\begin{itemize}
+\tightlist
+\item
+  in the normal linear model the mean \(E(Y_i)=\mu_i\) is assumed to be
+  a linear function of \(x_i\): \(\mu_i=\beta_0+\beta_1x_i\), and
+\item
+  in the logistic regression model the mean \(\mu_i=E(Y_i)=p_i\) is
+  modelled through the \emph{logit link function}. That is, in logistic
+  regression \(\log\left(\dfrac{p_i}{1-p_i}\right)=\beta_0+\beta_1x_i\).
+\end{itemize}
+
+In slightly more general notation we can write
+\(g(\mu_i)=\boldsymbol{x}_i^{\intercal}\boldsymbol{\beta}\) to cover
+both cases, where \(\mu_i=E(Y_i)\) and \(g(\mu_i)\) for each
+distribution is given in the following table.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3000}}@{}}
+\caption{Summary table}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Model
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Random component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Systematic component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Link function
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Model
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Random component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Systematic component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Link function
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Normal model & \(y_i \overset{\text{indep}}{\sim} N(\mu_i, \sigma^2),\)
+\(E(Y_i) = \mu_i\) &
+\(\boldsymbol{x}_i^{\intercal} \boldsymbol{\beta} = \beta_0 + \beta_1 x_i\)
+& Identity link: \(g(\mu_i) = \mu_i\) \\
+Logistic regression model &
+\(y_i \overset{\text{indep}}{\sim} Bin(1, p_i),\) \(E(Y_i) = p_i\) &
+\(\boldsymbol{x}_i^{\intercal} \boldsymbol{\beta} = \beta_0 + \beta_1 x_i\)
+& Logit link:
+\(g(\mu_i) = \log \left(\frac{\mu_i}{1-\mu_i}\right) = \log \left(\frac{p_i}{1-p_i}\right)\) \\
+\end{longtable}
+
+\section{Exponential family of
+distributions}\label{exponential-family-of-distributions}
+
+As you may already know, there is a framework for classifying
+distributions, inside which both the Normal (Gaussian) and Binomial
+distributions can be seen as specific examples from the larger
+\term{exponential family}.
+
+So are the Poisson, the Negative Binomial, Gamma distribution, Bernoulli
+(covered by Binomial already) and many others.
+
+\phantomsection\label{exponential-family-of-distributions-1}
+\begin{fbxSimple}{Definition}{Definition 1: }{Exponential family of distributions}
+\phantomsection\label{exponential-family-of-distributions-1}
+Consider a random variable \(Y\) whose probability density function
+(p.d.f.) or probability mass function (p.m.f.) depends on parameter
+\(\theta\). The distribution belongs to the exponential family if it can
+be written as \[
+f(y; \theta) = \exp \Big[a(y) b(\theta)+c(\theta) + d(y) \Big].
+\] The term \(b(\theta)\) is called the \term{natural parameter}. If
+\(a(y)=y\) the distribution is said to be in \term{canonical form}.
+
+\end{fbxSimple}
+
+\phantomsection\label{normal-distribution-is-a-member-of-exponential-family}
+\begin{fbxSimple}{Example}{Example 4: }{Normal distribution is a member of exponential family}
+\phantomsection\label{normal-distribution-is-a-member-of-exponential-family}
+Consider \(Y \sim N(\theta, \sigma^2)\) with p.d.f. \[
+\begin{aligned} f(y; \theta) = \frac{1}{\sqrt{2 \pi \sigma^2}}\exp \left[ -\frac{1}{2\sigma^2} (y-\theta)^2\right], \hspace{0.5cm} -\infty <y<\infty.\end{aligned}
+\] If we are interested in estimating \(\theta\), the variance,
+\(\sigma^2\), can be regarded as a nuisance parameter (which we may need
+to estimate at some other point).
+
+Using the fact that
+\(\blacksquare = \exp\left(\log(\blacksquare)\right)\), we rewrite the
+p.d.f. as \[
+\begin{aligned} f(y; \theta) = \exp \left[-\dfrac{y^2}{2\sigma^2}+\dfrac{y \theta}{\sigma^2} -\dfrac{\theta^2}{2\sigma^2}-\dfrac{1}{2}\log(2 \pi \sigma^2)\right]\end{aligned}
+\] we can see that this is of exponential family form with
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Normal distribution exponential family identification (for the
+case of fixed variance)}\label{tbl-normal-exp-family}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\(a(y)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(b(\theta)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(c(\theta)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(d(y)\)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+\(a(y)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(b(\theta)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(c(\theta)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(d(y)\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y\) & \(\frac{\theta}{\sigma^2}\) &
+\(-\frac{\theta^2}{2\sigma^2}-\frac{1}{2}\log(2 \pi \sigma^2)\) &
+\(-\frac{y^2}{2\sigma^2}\) \\
+\end{longtable}
+
+So \(a(y)=y\) meaning we can say it's in \term{canonical form}, and our
+\term{natural parameter} is \(b(\theta)=\frac{\theta}{\sigma^2}\).
+
+\end{fbxSimple}
+
+\phantomsection\label{Task-3}
+\begin{fbxSimple}{Task}{Task 3}{}
+\phantomsection\label{Task-3}
+Show that the binomial distribution \(\text{Bin}(n,p)\) is a member of
+the exponential family.
+
+\end{fbxSimple}
+
+\phantomsection\label{Answer-3}
+\begin{fbxSimple}{Answer}{Answer 3}{}
+\phantomsection\label{Answer-3}
+Consider \(Y \sim \text{Bin}(n,\theta)\) with p.m.f. \[
+\begin{aligned} f(y; \theta) = \binom{n}{y} \theta^y (1-\theta)^{n-y}  \text{for } y=0,1,\dots,n. \end{aligned}
+\] With extensive use of the same
+\(\blacksquare = \exp\left(\log(\blacksquare)\right)\) trick, plus the
+log laws, we rewrite the p.m.f. as \[
+\begin{aligned} f(y; \theta) &= \exp \left[ y \log \theta - y \log (1-\theta) + n \log(1-\theta) +\log \binom{n}{y} \right] \\ &= \exp \left[ y \log \frac {\theta}{1-\theta} + n \log(1-\theta) +\log \binom{n}{y} \right]  \end{aligned}
+\]
+
+we see that this is a member of the exponential family in canonical
+form, and its natural parameter is given by:
+\(b(\theta)= \log \left(\dfrac{\theta}{1-\theta} \right)\).
+
+\end{fbxSimple}
+
+One of the reasons why seeing distrubutions as members of the
+exponential family is useful is that certain expectations and variances
+can be calculated for all such distributions simultaneously, using the
+general format.
+
+In particular,
+
+\[
+E[a(Y)] = -\dfrac{c'(\theta)}{b'(\theta)}
+\] and \[
+\mathrm{Var}[a(Y)] =\dfrac{b''(\theta)c'(\theta)-c''(\theta)b'(\theta)}{[b'(\theta)]^3}.
+\]
+
+These may prove useful at some point, along with further useful
+properties of exponential family distributions related to the
+\term{score function} (we provide the general definition first).
+
+\phantomsection\label{rdefscoreuniv}
+\begin{fbxSimple}{Definition}{Definition 2: }{Score statistic}
+\phantomsection\label{rdefscoreuniv}
+Writing \(l(\theta; y)\) for the log-likelihood, we define the
+\term{score statistic} \(U\), by
+
+\[
+U\equiv \diff{l(\theta;y)}{\theta},
+\] i.e.~as the derivative of the log-likelihood \(l(\theta;y)\) with
+respect to the parameter \(\theta\).
+
+\end{fbxSimple}
+
+Recall, that for exponential family distributions the log-likelihood is
+always just \[
+l(\theta; y) = a(y)b(\theta)+c(\theta) + d(y).
+\] and so the \term{score statistic} is simply \[
+U(\theta;y)=\diff{l(\theta;y)}{\theta}=a(y)b'(\theta)+c'(\theta)
+\]
+
+The definition of the \term{score function} gives a new descriptive way
+to approach solving the maximum likelihood estimation problem. If we
+want to maximize the likelihood, then we typically just solve for the
+derivative being zero. So the \term{maximum likelihood estimate}
+\(\hat{\theta}\) for any distributions in the exponential family can be
+found by solving \[
+U\equiv \diff{l(\theta;y)}{\theta} = 0.
+\]
+
+We can also think of the score statistic,
+\(U=a(Y) b'(\theta)+c'(\theta)\), as a random variable in its own right,
+which means we can calculate its expectation \[
+\mathrm{E}(U)= b'(\theta)E[a(Y)]+c'(\theta)=b'(\theta)\left[-\frac{c'(\theta)}{b'(\theta)} \right]+c'(\theta)=0,
+\] which we note is always zero; and its variance \[
+\mathrm{Var}(U)=[b'(\theta)^2]\mathrm{Var}[a(Y)].
+\]
+
+This leads us to a very important concept in statistical inference,
+called \term{Fisher information}, which we can use to obtain standard
+errors for maximum likelihood estimates of GLM coefficients.
+
+\phantomsection\label{rdefinfuniv}
+\begin{fbxSimple}{Definition}{Definition 3: }{Fisher’s information}
+\phantomsection\label{rdefinfuniv}
+The \term{Fisher Information}, denoted as \(\mathcal{I}\), is given by:
+\[
+\mathcal{I} \equiv \mathrm{Var}(U)=E(U^2)=E\left[\left(\diff{l(\theta;y)}{\theta}\right)^2\right]=E\left[\diff[2]{l(\theta;y)}{{\theta}}\right].
+\]
+
+\end{fbxSimple}
+
+The variance of the maximum likelihood estimates tells us about the
+amount of \emph{information} that an observed random variable carries
+about an unknown parameter in the model that is linked to a
+distribution.
+
+As we will see shortly, the score and information play a key role in
+parameter estimation and in obtaining standard errors for the
+coefficient estimates of a GLM.
+
+Having defined the exponential family of distributions, we are now ready
+to formally define a GLM.
+
+\phantomsection\label{Weblink-2}
+\begin{fbxSimple}{Weblink}{External link 2}{}
+\phantomsection\label{Weblink-2}
+
+\url{https://goo.gl/mZHxyN}
+
+\begin{itemize}
+\tightlist
+\item
+  Chapter 8 from \emph{Mixed effects models and extensions in ecology
+  with R -Zuur et al.} contains a more in-depth discussion of the
+  exponential family.
+\end{itemize}
+
+\end{fbxSimple}
+
+\section{Generalised Linear Models}\label{generalised-linear-models}
+
+\subsection{The definition}\label{the-definition}
+
+\phantomsection\label{generalised-linear-models-1}
+\begin{fbxSimple}{Definition}{Definition 4: }{Generalised Linear Models}
+\phantomsection\label{generalised-linear-models-1}
+Let \(Y_i\) be independent responses from an exponential family
+distribution in canonical form and \(\mu_i=E(Y_i)\), \(i=1, \dots, n\).
+
+A \term{generalised linear model} (GLM) is a model of the form
+\begin{equation}\phantomsection\label{eq-glm-sys}{
+g(\mu_i) = \boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}
+}\end{equation}
+
+where \(\boldsymbol{\beta}\) is a \(p\)-dimensional parameter vector,
+\(\boldsymbol{x}_i^{\intercal}\) is the \(i\)th row of the design matrix
+\(\boldsymbol{X}\), and \(g()\) is a monotonic, differentiable function
+called the \term{link function}.
+
+\end{fbxSimple}
+
+A GLM generalises the normal linear model by allowing:
+
+\begin{itemize}
+\item
+  a response variable with a distribution other than normal, but still a
+  member of the exponential family of distributions; and
+\item
+  a non-trivial relationship between the response and the linear
+  component of the form
+  \(g(\mu_i) = \boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}\) where
+  \(g()\) is the \term{link function}.
+\end{itemize}
+
+Importantly, \(g(m)\) doesn't need to be \(g(m)=m\), which it was in our
+ordinarly linear models.
+
+\subsection{\texorpdfstring{The \term{random
+component}}{The random component}}\label{the-random-component}
+
+Suppose \(Y_1,\dots, Y_n\) are independent random variables which follow
+an exponential family distribution such that
+\(f(y_i; \theta_i)=\exp[y_i b(\theta_i)+c(\theta_i)+d(y_i)]\) for
+\(i=1,\dots,n\).
+
+The joint p.d.f. (or p.m.f.) of the \(Y_i\) is \[
+f(y_1,\dots,Y_n; \theta_1,\dots, \theta_n) =
+  \prod_{i=1}^n \exp[y _i b(\theta_i)+c(\theta_i)+d(y_i)]
+\] So, \begin{equation}\phantomsection\label{eq-joint}{
+f(y_1,\dots,Y_n; \theta_1,\dots, \theta_n) = \exp \left[ \sum_{i=1}^n y_i b(\theta_i)+ \sum_{i=1}^n c(\theta_i) +\sum_{i=1}^n d(y_i) \right]
+}\end{equation}
+
+The distribution of each \(Y_i\) is in canonical form and depends on a
+single parameter \(\theta_i\).
+
+\subsection{\texorpdfstring{The \term{systematic
+component}}{The systematic component}}\label{the-systematic-component}
+
+Associated with each \(y_i\) is a vector
+\(\boldsymbol{x}_i=(x_{i1},x_{i2},\dots,x_{ip})^\intercal\) of values of
+\(p\) explanatory variables. The response, \(Y_i\), depends on the
+explanatory variables through a linear component, \[
+\eta_i=\boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}=\beta_1x_{i1}+\dots + \beta_p x_{ip}
+\] for \(i=1,\dots, n.\)
+
+We will use the \term{link function} below to transform between the
+\(y_i\) and the \(\eta_i\) (though in some case we may use
+\(y_i=\eta_i\)), but the choice to use the values of the \(p\)
+covariates to determing the \(\eta\) is the \term{systematic component}.
+
+The \(i\)th row of our design matrix, \(\boldsymbol{X}\), is
+\(\boldsymbol{x}_i^{\intercal}\); and
+\(\boldsymbol{\beta}=(\beta_1,\dots, \beta_p)^\intercal\) is the
+parameter vector. Thus, as in linear models, the design matrix is given
+by
+\[\boldsymbol{X} = \left[ \begin{array}{c} \boldsymbol{x}_1^\intercal \\ \vdots \\ \boldsymbol{x}_n^\intercal \end{array}\right] =  \left[ \begin{array}{ccc} x_{11} & \dots & x_{1p} \\ \vdots & & \vdots \\ x_{n1} & \dots & x_{np}  \end{array}\right].\]
+
+\subsection{\texorpdfstring{The \term{link
+function}}{The link function}}\label{the-link-function}
+
+The parameters \(\theta_i\) in Equation~\ref{eq-joint} are usually not
+of direct interest as they are not available to us. Instead, we are
+interested in a smaller set of parameters \((\beta_1,\dots, \beta_p)\),
+and assume that \(Y_i\) depends on these through the linear predictor
+\(\eta_i\). The link between the distribution of the \(Y_i\) and the
+linear predictor \(\eta_i\) is provided by the link function \(g()\),
+for which
+\(g(\mu_i)=\eta_i=\boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}.\)
+Here \(\mu_i=E(Y_i)\) and \(g()\) is a monotone, differentiable
+function. Although any one-to-one function could be used in principle,
+certain choices of link function can offer great simplification. In
+particular, the link function can be chosen so that the natural
+parameter, \(b(\theta_i)\), is proportional to the linear component
+\(\eta_i=\boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}\). Such a link
+function is known as the \term{canonical link}. The following table
+shows the canonical link function for some of the most common
+distributions.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3300}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Distribution
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Natural parameter, \(b(\theta)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Canonical link
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Normal & \(\dfrac{\theta}{\sigma^2}\) & \(g(\mu)=\mu\) \\
+Poisson & \(\log \theta\) & \(g(\mu)=\log(\mu)\) \\
+Binomial & \(\log\left(\dfrac{\theta}{1-\theta} \right)\) &
+\(g(\mu)=\log\left(\dfrac{\mu}{1-\mu} \right)\) \\
+\end{longtable}
+
+\phantomsection\label{Weblink-3}
+\begin{fbxSimple}{Weblink}{External link 3}{}
+\phantomsection\label{Weblink-3}
+
+\url{http://encore.lib.gla.ac.uk/iii/encore/record/C__Rb2939999?lang=eng}
+
+\begin{itemize}
+\tightlist
+\item
+  Chapter 6 from \emph{Extending linear models with R: generalized
+  linear, mixed effects and nonparametric regression models - Faraway}
+  gives an overview of GLMs and their properties.
+\end{itemize}
+
+\end{fbxSimple}
+
+\phantomsection\label{Weblink-4}
+\begin{fbxSimple}{Weblink}{External link 4}{}
+\phantomsection\label{Weblink-4}
+
+\url{https://goo.gl/mZHxyN}
+
+\begin{itemize}
+\tightlist
+\item
+  Sections 9.1 and 9.2 from \emph{Mixed effects models and extensions in
+  ecology with R -Zuur et al.} cover the general formulation of GLMs.
+\end{itemize}
+
+\end{fbxSimple}
+
+Let us now look at some examples of generalised linear models and their
+components.
+
+\phantomsection\label{normal-linear-model}
+\begin{fbxSimple}{Example}{Example 5: }{Normal linear model}
+\phantomsection\label{normal-linear-model}
+Consider
+\(E(Y_i)=\mu_i =  \boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}\)
+where the \(Y_i\) are independent \(N(\mu_i,\sigma^2)\) for
+\(i=1,\dots,n\). Here \(g(\mu_i)=\mu_i\), the \term{identity} link. You
+may be more familiar with this model written as
+\(\boldsymbol{Y}=\boldsymbol{X}\boldsymbol{\beta}+\boldsymbol{\epsilon}\)
+where
+\(\boldsymbol{\epsilon}=\left[ \begin{array}{c} \epsilon_1\\ \vdots \\ \epsilon_n  \end{array} \right]\)
+with the \(\epsilon_i\) independent, identically distributed
+\(N(0,\sigma^2)\) random variables.
+
+So the standard linear model is an example of a generalised linear
+model. In much the same way a square is a rectangle.
+
+\end{fbxSimple}
+
+\phantomsection\label{Example-6}
+\begin{fbxSimple}{Example}{Example 6}{}
+\phantomsection\label{Example-6}
+Consider a model for whether students pass an end of semester exam at
+the first attempt. A Bernoulli variable \(Y\) takes the value \(1\) if
+they pass, and \(0\) if not. Each student's performance contains some
+uncertainty, and is modelled by \[
+Y_i \sim \mathrm{Bernoulli}(p_i),
+\] where \(p_i\) is their probability of passing.
+
+Student \(i\) attends a number of lectures, \(l_i\), a number of labs
+\(m_i\) and spends a time \(t_i\) studying outside of classes.
+
+We choose a model where these three covariates determine (through the
+\term{link function}) the probability of passing for each student, which
+as usual is the mean of \(Y_i\).
+
+Since we're working with a Bernoulli (or Binomial) our chosen linear
+model is that \[
+g(p_i) = \log\left(\frac{p_i}{1-p_i}\right) = \beta_0 + \beta_1l_i + \beta_2m_i+\beta_3t_i.
+\] So \(g(p_i) = \boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}\) with
+\(\boldsymbol{x}_i = \left(1, l_i,m_i, t_i\right)\) and
+\(\boldsymbol{\beta} = \left(\beta_0, \beta_1, \beta_2, \beta_3\right)\).
+
+\end{fbxSimple}
+
+\phantomsection\label{a-model-for-mortality-rates}
+\begin{fbxSimple}{Example}{Example 7: }{A model for mortality rates}
+\phantomsection\label{a-model-for-mortality-rates}
+The number of deaths, \(Y\), in a population in a year can be modelled
+by the Poisson distribution \[
+ f(y; \mu)=\frac{\mu^y e^{-\mu}}{y!}, \quad y=0,1,2,\dots.
+ \] However the population itself changes in size over time, and
+different groups in the population have different average death rates.
+\emph{Recall that a sum of Poissons is still Poisson}.
+
+So we can model the expected total number of deaths per year in a
+population as \(E(Y)=\mu\) and it can be modelled by \[
+E(Y)=\mu = n \lambda^*
+\] where \(n\) is the population size (in units of 100,000s) and
+\(\lambda^*\) is the death rate per 100,000 people.
+
+To allow for different death rates by age, we can allow for the
+\(\lambda^*\) to vary for different sub-populations.
+
+Let \(Y_1,\dots, Y_n\) be the numbers of deaths occurring in successive
+age groups. A popular model we assume is that
+\(E(Y_i)=\mu_i = n_i \exp(\theta \times i)\) where
+\(Y_i \sim \mathrm{Poisson}(\mu_i)\) and
+
+\begin{itemize}
+\tightlist
+\item
+  \(i=1\) for the age group 30-34,
+\item
+  \(i=2\) for age group 35-39,
+\item
+  \(\vdots\)
+\item
+  \(i=8\) for age group 65-69.
+\end{itemize}
+
+So in this example \(\lambda^*_i\) the death rate in sub-population
+\(i\) is being written as \(e^{\theta \times i}\), and \(n_i\) denotes
+the number of people in that \(i\)th group (in our chosen units).
+
+This model can be identified as a generalised linear model if we choose
+a log link function,
+i.e.~\(g(\mu_i) = \log \mu_i = \log n_i +\theta i\). Then we see that
+\(g(\mu_i)\) our function of the distribution mean can be seen as a
+linear combination of covariates \(\boldsymbol{x_i}\) and parameters
+\(\boldsymbol{\beta}\) if we define them like this: \[
+\boldsymbol{x}_i^{\intercal}= (\log n_i, i) \text{ and } \boldsymbol{\beta}=(1, \theta)^{\intercal};
+\] so then \[
+g(\mu_i) = \boldsymbol{x}^{\intercal} \boldsymbol{\beta}.
+\] Each subpopulation comes with two covariates: \(\log(n_i)\) the log
+of its population, and it's label \(i\). The only parameter to estimate
+is \(\theta\) as we know exactly how \(\log(n_i)\) affects
+\(\log(\mu_i)\) already by our model assumption.
+
+When we see this idea later we will call the term \(\log n_i\) is an
+\term{offset}, we will especially see more about it when we talk about
+models for counts.
+
+\end{fbxSimple}
+
+\phantomsection\label{Task-4}
+\begin{fbxSimple}{Task}{Task 4}{}
+\phantomsection\label{Task-4}
+Formulate the model used in the medical school admissions example as a
+GLM.
+
+\end{fbxSimple}
+
+\phantomsection\label{Answer-4}
+\begin{fbxSimple}{Answer}{Answer 4}{}
+\phantomsection\label{Answer-4}
+Random component: Let \(Y_i=1\) if the \(i\)th applicant is accepted to
+medical school and \(Y_i=0\) if not. We assume that the \(Y_i\) are
+independent responses from \(\text{Bin}(1,p_i)\), with \(E(Y_i)=p_i\)
+for \(i=1,\dots,55\).
+
+Systematic component: \(\beta_0+\beta_1 x_i\) where \(x_i\) is the
+\(i\)th applicant's GPA and \(\beta_0\) and \(\beta_1\) are parameters
+to be estimated.
+
+Link function: \(g(p_i)=\log \left(\dfrac{p_i}{1-p_i} \right)\) (logit
+link)
+
+Equation of the GLM:
+\[\log \left(\dfrac{p_i}{1-p_i} \right)=\beta_0+\beta_1 x_i.\]
+
+\end{fbxSimple}
+
+\section{Maximum likelihood estimation of GLM
+coefficients}\label{maximum-likelihood-estimation-of-glm-coefficients}
+
+In a generalised linear model we are interested in the parameters
+\(\beta_1,\dots,\beta_p\) that describe how the response depends on the
+explanatory variables. We use the observed \(y_1,\dots,y_n\) to maximise
+the log-likelihood function
+\begin{equation}\phantomsection\label{eq-loglik}{
+l(\boldsymbol{\beta},\boldsymbol{y})=\sum_{i=1}^n y_i b(\theta_i)+ \sum_{i=1}^n c (\theta_i) +\sum_{i=1}^n d(y_i)
+}\end{equation}
+
+obtained from equation (Equation~\ref{eq-joint}). This depends on
+\(\boldsymbol{\beta}\) through
+
+\[
+\begin{aligned}
+\mu_i & =E(Y_i)=-\frac{c'(\theta_i)}{b'(\theta_i)};    \\
+\mathrm{Var}(Y_i) & = [b''(\theta_i)c'(\theta_i)-c''(\theta_i)b'(\theta_i)]/[b'(\theta_i)]^3;\\
+g(\mu_i) & =\eta_i= \boldsymbol{x}_i^{\intercal} \boldsymbol{\beta}, \quad i=1,\dots,n.
+\end{aligned}
+\]
+
+The maximisation procedure results in \(p\) simultaneous equations for
+\(\hat{\boldsymbol{\beta}}\), which are usually solved numerically using
+the \term{method of scoring} (also known as \term{Fisher's scoring
+method}) and an algorithm called \term{iteratively reweighted least
+squares}.
+
+\phantomsection\label{Supplement-1}
+\begin{fbxSimple}{Supplement}{Supplement 1}{}
+\phantomsection\label{Supplement-1}
+Here we present in some detail how the maximum likelihood estimates of
+the coefficients of a GLM are obtained. Suppose that we are interested
+in estimating the parameter vector
+\((\beta_1,\dots, \beta_p)^\intercal\) in a GLM. To find the maximum
+likelihood estimates \(\hat{\beta}_j\) we need the scores (multivariate
+version of the score from \hyperref[rdefscoreuniv]{Definition 2})
+expressed as functions of the \(\beta_j\):
+
+\begin{equation}\phantomsection\label{eq-chainrule}{
+U_j\equiv \frac{\partial l}{\partial \beta_j} = \sum_{i=1}^n \left [   \frac{\partial l_i}{\partial \beta_j}  \right]= \sum_{i=1}^n \left [   \frac{\partial l_i}{\partial \theta_i} \cdot \frac{\partial \theta_i}{\partial \mu_i} \cdot \frac{\partial \mu_i} {\partial \beta_j}  \right]
+}\end{equation}
+
+For an exponential family distribution in canonical form, the components
+of Equation~\ref{eq-chainrule} are:
+
+\begin{equation}\phantomsection\label{eq-dldtheta}{
+\frac{\partial l_i}{\partial \theta_i} = y_i b'(\theta) +c'(\theta)=b'(\theta) \left[y_i -\left(-\frac{c'(\theta)}{b'(\theta)}\right) \right]=b' (\theta) (y_i - \mu_i) 
+}\end{equation} \[
+\begin{aligned}
+& \frac{\partial \mu_i}{\partial \theta_i} = -\frac{c''(\theta_i)}{b'(\theta_i)}+\frac{c'(\theta_i) b''(\theta_i)}{[b'(\theta_i)]^2} = b'(\theta_i) \mathrm{Var}(Y_i)  \nonumber \\
+\end{aligned}
+\] \begin{equation}\phantomsection\label{eq-dmudtheta}{
+\Rightarrow  \frac{\partial \theta_i}{\partial \mu_i}= \frac{1}{b'(\theta_i) \mathrm{Var}(Y_i)} 
+}\end{equation}
+
+\begin{equation}\phantomsection\label{eq-dmudbeta}{
+\frac{\partial \mu_i}{\partial \beta_j}=\frac{\partial \mu_i}{\partial \eta_i}\cdot \frac{\partial \eta_i}{\partial \beta_j}=\frac{\partial \mu_i}{\partial \eta_i}x_{ij}=\frac{x_{ij}}{g'(\mu_i)}
+}\end{equation}
+
+Substituting Equation~\ref{eq-dldtheta}, Equation~\ref{eq-dmudtheta} and
+Equation~\ref{eq-dmudbeta} into Equation~\ref{eq-chainrule} the
+expression for the scores becomes
+
+\begin{equation}\phantomsection\label{eq-score}{
+U_j=\sum_{i=1}^n \left[  \frac{(y_i-\mu_i)}{\mathrm{Var}(Y_i)}x_{ij} \frac{\partial \mu_i}{\partial \eta_i}\right]=\sum_{i=1}^n \left[  \frac{(y_i-\mu_i)}{\mathrm{Var}(Y_i)}\frac{x_{ij}} {g'(\mu_i)}\right].
+}\end{equation}
+
+Note that the scores depend on \(\boldsymbol{\beta}\) through
+\(\mu_i=E(Y_i)\) and through \(\mathrm{Var}(Y_i)\). The
+variance-covariance matrix of the \(U_j\) has terms
+\(\mathcal{\mathcal{I}}_{jk}=E(U_jU_k)\) and is known as the
+\term{(Fisher) information matrix}. This is the multivariate version of
+\hyperref[rdefinfuniv]{Definition 3}. The elements of matrix
+\(\mathcal{\mathcal{I}}\) can be obtained from Equation~\ref{eq-score}:
+
+\[
+\begin{aligned}
+ \mathcal{\mathcal{I}}_{jk}&=  E \left \lbrace \sum_{i=1}^n \left[  \frac{(y_i-\mu_i)}{\mathrm{Var}(Y_i)}x_{ij} \frac{\partial \mu_i}{\partial \eta_i}\right] \sum_{l=1}^n \left[  \frac{(y_l-\mu_l)}{\mathrm{Var}(Y_l)}x_{lk} \frac{\partial \mu_l}{\partial \eta_l}\right]  \right \rbrace \nonumber \\
+ &=\sum_{i=1}^n \frac{E[(Y_i-\mu_i)^2]x_{ij}x_{ik}}{[\mathrm{Var}(Y_i)]^2} \left(\frac{\partial \mu_i}{\partial \eta_i} \right)^2  \nonumber\\
+\end{aligned}
+\] \begin{equation}\phantomsection\label{eq-informationmatrix}{
+=\sum_{i=1}^n \frac{x_{ij}x_{ik}}{\mathrm{Var}(Y_i)} \left(\frac{\partial \mu_i}{\partial \eta_i} \right)^2 = \sum_{i=1}^n \frac{x_{ij}x_{ik}}{\mathrm{Var}(Y_i)\left(g'(\mu_i)\right)^2}
+}\end{equation}
+
+Here we have used the fact that \(E[(Y_i-\mu_i)(Y_l-\mu_l)]=0\) by the
+independence of the \(Y_i\). Notice that the information matrix can be
+written as
+
+\begin{equation}\phantomsection\label{eq-informationirwls}{
+\mathcal{I}=\mathcal{I}(\boldsymbol{\beta})=\boldsymbol{X}^\intercal \boldsymbol{W} \boldsymbol{X}
+}\end{equation}
+
+where
+\(\boldsymbol{X}=\left[ \begin{array}{c} \boldsymbol{x}_1^\intercal\\ \dots \\  \boldsymbol{x}_n^\intercal \end{array} \right]= \left[ \begin{array}{ccc}
+x_{11} & \dots & x_{1p}\\
+\vdots & \ddots & \vdots\\
+x_{n1} & \dots & x_{np}                                                                                                                                                                                                                     \end{array} \right],\)
+\(\boldsymbol{W}=\text{diag}(\boldsymbol{w})=  \left[ \begin{array}{cccc}
+w_1 & 0 &  \dots & 0\\
+0 & w_2 & & \vdots\\
+\vdots & & \ddots & 0\\
+0 & \dots &0 & w_n                                                                                                                                                                                                                     \end{array} \right],\)
+and \[
+\begin{aligned}
+w_i=\frac{1}{\mathrm{Var}(Y_i)\left(g'(\mu_i)\right)^2}, \hspace{1cm} i=1,\dots, n.
+\end{aligned}
+\]
+
+The information matrix \(\mathcal{I}(\boldsymbol{\beta})\) depends on
+\(\boldsymbol{\beta}\) through \(\boldsymbol{\mu}\) and through
+\(\mathrm{Var}(Y_i)\) for \(i=1,\dots,n\).
+
+Equation~\ref{eq-score} can be written as
+
+\begin{equation}\phantomsection\label{eq-scoreirwls}{
+U_j=\sum_{i=1}^n (y_i-\mu_i)x_{ij}w_i g'(\mu_i)=   \sum_{i=1}^n x_{ij}w_iz_i     \hspace{1cm} j=1,\dots,p
+}\end{equation}
+
+where \(z_i=(y_i-\mu_i)g'(\mu_i)\), so the score can be expressed in
+vector-matrix form as
+
+\begin{equation}\phantomsection\label{eq-scoreirwlsmatrix}{
+\boldsymbol{U}(\boldsymbol{\theta})= \boldsymbol{X}^\intercal \boldsymbol{W} \boldsymbol{z} .
+}\end{equation}
+
+Fisher's method of scoring is based on the estimating equation
+
+\begin{equation}\phantomsection\label{eq-scoringpdim}{
+\hat{\boldsymbol{\beta}}^{(m)} = \hat{\boldsymbol{\beta}}^{(m-1)} +[\mathcal{\mathcal{I}}^{(m-1)}]^{-1} \boldsymbol{U}^{(m-1)}
+}\end{equation}
+
+where \(\hat{\boldsymbol{\beta}}^{(m)}\) is the vector of estimates of
+\((\beta_1,\dots \beta_p)\) at the \(m\)th iteration,
+\([\mathcal{\mathcal{I}}^{(m-1)}]^{-1}\) is the inverse of the
+information matrix with elements \(\mathcal{\mathcal{I}}_{jk}\) given by
+Equation~\ref{eq-informationmatrix}, and \(\boldsymbol{U}^{(m-1)}\) is
+the vector of elements given by Equation~\ref{eq-score}, all evaluated
+at \(\hat{\boldsymbol{\beta}}^{(m-1)}\). Substituting
+Equation~\ref{eq-informationirwls} and
+Equation~\ref{eq-scoreirwlsmatrix} in Equation~\ref{eq-scoringpdim} we
+obtain \[
+\begin{aligned}
+\hat{\boldsymbol{\beta}}^{(m)}&=   \hat{\boldsymbol{\beta}}^{(m-1)}+\left[\boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} \boldsymbol{X}\right]^{-1}  \boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} \boldsymbol{z}^{(m-1)}\\
+  &=  \left[\boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} \boldsymbol{X}\right]^{-1}  \boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)}\boldsymbol{X} \hat{\boldsymbol{\beta}}^{(m-1)}+\left[\boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} \boldsymbol{X}\right]^{-1}  \boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} \boldsymbol{z}^{(m-1)},
+\end{aligned}
+\] this simplifies slightly to
+\begin{equation}\phantomsection\label{eq-irwls}{
+\hat{\boldsymbol{\beta}}^{(m)} =\left[\boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} \boldsymbol{X}\right]^{-1}  \boldsymbol{X}^\intercal \boldsymbol{W}^{(m-1)} (\boldsymbol{\eta}^{(m-1)}+\boldsymbol{z}^{(m-1)})
+}\end{equation}
+
+This is the same form as the normal equations for weighted least
+squares, except that it has to be solved numerically because
+\(\boldsymbol{\eta}\), \(\boldsymbol{z}\) and \(\boldsymbol{W}\) depend
+on \(\hat{\boldsymbol{\beta}}\).
+
+This is why the method to obtain maximum likelihood estimators for GLMs
+is called \term{iteratively (re)weighted least squares (IRWLS)}. The
+procedure begins by using an initial approximation
+\(\hat{\boldsymbol{\beta}}^{(0)}\) to obtain estimates of
+\(\boldsymbol{\eta}\), \(\boldsymbol{z}\) and \(\boldsymbol{W}\). Then
+\(\hat{\boldsymbol{\beta}}^{(1)}\) is obtained from
+Equation~\ref{eq-irwls} and is used to update \(\boldsymbol{\eta}\),
+\(\boldsymbol{z}\) and \(\boldsymbol{W}\). The iterative process
+continues until the difference between successive approximations
+\(\hat{\boldsymbol{\beta}}^{(m-1)}\) and
+\(\hat{\boldsymbol{\beta}}^{(m)}\) is sufficiently small.
+
+\end{fbxSimple}
+
+\section{Inference for GLMs}\label{inference-for-glms}
+
+We will now turn our attention to inference for GLMs, mainly through
+hypothesis tests and the construction of confidence intervals for the
+parameters of interest. For that we need some sampling distribution
+results.
+
+\subsection{Sampling distribution of the
+MLE}\label{sampling-distribution-of-the-mle}
+
+The asymptotic (large sample) distribution for
+\(\hat{\boldsymbol{\beta}}\) is
+
+\begin{equation}\phantomsection\label{eq-waldchi}{
+(\hat{\boldsymbol{\beta}} - \boldsymbol{\beta})^\intercal \mathcal{I}(\hat{\boldsymbol{\beta}}) (\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}) \overset{\text{approx}}{\sim} \chi^2(p)
+}\end{equation}
+
+or equivalently
+
+\begin{equation}\phantomsection\label{eq-waldnormal}{
+\hat{\boldsymbol{\beta}} \overset{\text{approx}}{\sim} N_p(\boldsymbol{\beta}, \mathcal{I}^{-1}),
+}\end{equation}
+
+where \(\chi^2(p)\) refers to the chi-squared distribution with \(p\)
+degrees of freedom and \(N_p(\boldsymbol{\beta},\mathcal{I}^{-1})\)
+refers to a multivariate (\(p\)-dimensional) normal distribution with
+vector mean \(\boldsymbol{\beta}\) and \(p \times p\)-dimensional
+variance-covariance matrix \(\mathcal{I}^{-1}\).
+
+In the one-dimensional case, what this says is that the MLE
+\(\hat{\beta}\) is approximately normally distributed with mean
+\(\beta\) and variance \(\mathcal{I}^{-1}\) (scalars).
+
+This allows us to perform hypothesis tests and construct confidence
+intervals for the model parameters.
+
+\phantomsection\label{wald-statistic}
+\begin{fbxSimple}{Definition}{Definition 5: }{Wald statistic}
+\phantomsection\label{wald-statistic}
+The \term{Wald statistic}, also known as the \term{z-statistic}, for
+each of the model parameters
+\(\left \lbrace \beta_j\right \rbrace,~j=1,\dots,p\), is equal to the
+coefficient estimate, \(\hat{\beta}_j\), over its standard error,
+\(\text{se}(\hat{\beta}_j)\).
+
+\end{fbxSimple}
+
+Under the null hypothesis \(H_0: \beta_j=0\), and using the asymptotic
+normality result for the MLE, the Wald statistic is approximately
+distributed as standard normal. In other words, we have that \[
+z=\frac{\hat{\beta}_j}{\text{se}(\hat{\beta}_j)} \overset{\text{approx}}{\sim} N(0,1).
+\] This allows us to perform the \term{Wald test}, which compares the
+z-statistic to the extreme percentiles of a standard normal
+distribution.
+
+Also using this asymptotic normality result, we can construct an
+approximate 95\% confidence interval for \(\beta_j\) by taking \[
+\hat{\beta}_j\pm 1.96\text{se}(\hat{\beta}_j).
+\] Here 1.96 is the 97.5th percentile of the standard normal
+distribution.
+
+\phantomsection\label{hypothesis-test-and-confidence-interval-for-the-gpa-coefficient-in-the-model-for-medical-school-admissions}
+\begin{fbxSimple}{Example}{Example 8: }{Hypothesis test and confidence interval for the GPA coefficient in the model for medical school admissions}
+\phantomsection\label{hypothesis-test-and-confidence-interval-for-the-gpa-coefficient-in-the-model-for-medical-school-admissions}
+Recall the logistic regression model for the medical school admissions
+data. In the output we see the MLEs of \(\beta_0\) and \(\beta_1\) in
+the \texttt{Estimate} column. These are obtained by solving the
+likelihood equations numerically using Fisher's scoring method (notice
+the \texttt{Number\ of\ Fisher\ Scoring\ iterations} information towards
+the end.)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(med.glm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Call:
+glm(formula = Acceptance ~ GPA, family = binomial, data = MedGPA)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -19.207      5.629  -3.412 0.000644 ***
+GPA            5.454      1.579   3.454 0.000553 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 75.791  on 54  degrees of freedom
+Residual deviance: 56.839  on 53  degrees of freedom
+AIC: 60.839
+
+Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+We can also see the standard errors for \(\hat{\beta_0}\)
+\texttt{(Intercept)} and \(\hat{\beta_1}\) (GPA coefficient). These are
+obtained from the observed information matrix, which is computed during
+the iterative estimation procedure. Remember that the variance of
+\(\boldsymbol{\beta}\) is estimated by \(\mathcal{I}^{-1}\), the inverse
+of the information matrix. The R function \texttt{vcov()}returns this
+estimated variance-covariance matrix of the model coefficients:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{vcov}\NormalTok{(med.glm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+            (Intercept)       GPA
+(Intercept)   31.682551 -8.873862
+GPA           -8.873862  2.493774
+\end{verbatim}
+
+The diagonal entries of this matrix are the estimated variances for
+\(\hat{\beta_0}\) and \(\hat{\beta_1}\) and the off-diagonal entries
+give the estimated covariance between \(\hat{\beta_0}\) and
+\(\hat{\beta_1}\). The standard errors shown in the output
+(\texttt{Std.\ Error} column) are the square roots of the estimated
+variances:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sqrt}\NormalTok{(}\FunctionTok{diag}\NormalTok{(}\FunctionTok{vcov}\NormalTok{(med.glm)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+(Intercept)         GPA 
+   5.628726    1.579169 
+\end{verbatim}
+
+The \texttt{z\ value} column gives the Wald statistics that test the
+hypotheses \(H_0: \beta_0=0\) and \(H_0: \beta_1=0\). We are almost
+never interested in testing whether the intercept term is zero or not,
+we focus instead on the coefficients of the explanatory variables in the
+model. So for \(H_0: \beta_1=0\) the \(z\) value equals 3.454 and is
+obtained by taking the coefficient estimate and dividing by its standard
+error
+\[z=\frac{\hat{\beta_1}}{\text{se}(\hat{\beta}_1)}=\frac{5.454}{1.579}=3.454.\]
+Under \(H_0\), \(z\) should approximately follow the standard normal
+distribution, \(N(0,1)\). The \(p\)-value shown as
+\texttt{Pr(\textgreater{}\textbar{}z\textbar{})} in the output is the
+probability of obtaining a value as extreme as \(z\) or larger in
+absolute value, assuming the null hypothesis is true. A small
+\(p\)-value indicates that the \(z\) value is unlikely to come from a
+\(N(0,1)\) distribution and leads to rejecting \(H_0\). As the
+\(p\)-value for our GPA coefficient is small (0.000553) we can therefore
+conclude that we reject our null hypothesis that the GPA coefficient is
+zero, ie. that the GPA term is worth keeping in the model.
+
+A totally equivalent alternative would be to instead create the
+approximate 95\% confidence interval for the GPA coefficient, by using
+\(\hat{\beta}_j\pm 1.96\text{se}(\hat{\beta}_j)\):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{5.454{-}1.96}\SpecialCharTok{*}\FloatTok{1.579}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.35916
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{5.454+1.96}\SpecialCharTok{*}\FloatTok{1.579}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 8.54884
+\end{verbatim}
+
+The resulting interval is \((2.36,8.55)\), and since it does not include
+zero, we conclude that the GPA coefficient is significant.
+
+\end{fbxSimple}
+
+\subsection{Deviance}\label{deviance}
+
+To assess the adequacy of a model of interest, we compare it with the
+\term{saturated} (or \term{full}) model, which has the maximum number of
+parameters that can be estimated. For data with \(n\) observations,
+\(y_1,\dots, y_n\), each with a different parameter in
+\(\boldsymbol{X}^\intercal \boldsymbol{\beta}\), the saturated model can
+be specified with \(n\) parameters.
+
+\phantomsection\label{Keyux2a-3}
+\begin{fbxSimple}{Key}{Key Idea}{}
+\phantomsection\label{Key*-3}
+Recall that for our GLM we are using Equation~\ref{eq-glm-sys} to
+determine our best \(\beta\) values, and that we have one equation for
+each such \(i\) in \(1,2,\ldots,n\). So our
+\(\beta_1, \beta_2, \ldots, \beta_p\) coefficients will typically be
+being chosen to try and match the observed means \(\mu_i\) of our
+\(y_i\) values simultaneously across \(n\) equations. A \term{saturated}
+model includes as many coefficients as equations and thus allows for
+`perfect' selection of all the \(\mu_i\) values simultaneously. We still
+have uncertainty as our model for \(Y_i\) remains random, and note that
+having more than \(n\) coefficients doesn't help further, it's as if we
+can already essentially manually select all of our \(\mu_i\) values.
+
+\end{fbxSimple}
+
+If we have replicates (i.e.~duplicated \(\boldsymbol{x}\) rows), the
+maximum number of parameters in the saturated model can be less than
+\(n\).
+
+For the \term{saturated model} which uses \(m\) parameters (normally
+\(m=n\)) we write \(\boldsymbol{\beta}_{\max}\) and
+\(\hat{\boldsymbol{\beta}}_{\max}\) for the corresponding parameter
+vector and its MLE.
+
+Then let \(L(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})\) be the
+likelihood evaluated at \(\hat{\boldsymbol{\beta}}_{\max}\), i.e.~the
+likelihood for the \term{saturated} model; and let
+\(L(\hat{\boldsymbol{\beta}};\boldsymbol{y})\) be the maximum value of
+the likelihood for our model of interest (where we used \(p\)
+covariates).
+
+The \term{likelihood ratio} \[
+\lambda=\frac{L(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})}{L(\hat{\boldsymbol{\beta}};\boldsymbol{y})}
+\] provides a measure of how well the model of interest fits compared
+with the full model. In practice, we often use the logarithm of the
+likelihood ratio (since it has more neatly provable asymptotic
+properties), \[
+\log \lambda = l(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})-l(\hat{\boldsymbol{\beta}};\boldsymbol{y}).
+\]
+
+Large values of \(\log \lambda\) suggest that the model of interest is a
+poor description of the data relative to the full model. Note the top of
+the fraction is always at least as large as the bottom so the minimum of
+\(\lambda\) is \(1\). How large a value of \(\log \lambda\) is large? To
+answer this question we can obtain a critical region using the sampling
+distribution of \(\log \lambda\). In fact, we will work with the
+quantity \(2\log \lambda\), which we call the \term{deviance}.
+
+\phantomsection\label{deviance-1}
+\begin{fbxSimple}{Definition}{Definition 6: }{Deviance}
+\phantomsection\label{deviance-1}
+The deviance, \(D\), is defined as \[
+D=2\log \lambda =2\left[ l(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})-l(\hat{\boldsymbol{\beta}};\boldsymbol{y})\right]
+\] where \(l(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})\) is the
+maximised log-likelihood for the saturated model and
+\(l(\hat{\boldsymbol{\beta}};\boldsymbol{y})\) is the maximised
+log-likelihood for the model of interest.
+
+\end{fbxSimple}
+
+We won't go into the theory here, but this is a \term{likelihood-ratio
+test}, which you have likely studied elsewhere. Under various conditions
+(especially large \(n\)) this quantity \(D\) will have an approximately
+\(\chi^2\) distribution, with parameter equal to the difference in
+degrees of freedom between the two models considered.
+
+This means that for a GLM that fits the data well, the approximate
+distribution of the deviance, \(D\), is \(\chi^2_{m-p}\) where \(m\) is
+the number of parameters in the saturated model and \(p\) is the number
+of parameters in the model of interest. We can therefore use this
+approximate distribution to evaluate whether the assumption here that
+our model does indeed fit the data well, was reasonable.
+
+We are implicitly assuming that our top level \term{saturated} model is
+at least reasonable, in that our distributional assumptions for the
+\(Y_i\) are correct. Beyond this, the deviance allows us to see whether
+the restriction placed on our \(\eta_i\) values through limiting
+ourselves to just \(p\) covariates still does a good job of fitting the
+data.
+
+\phantomsection\label{deviance-for-a-binomial-model}
+\begin{fbxSimple}{Example}{Example 9: }{Deviance for a binomial model}
+\phantomsection\label{deviance-for-a-binomial-model}
+Suppose \(Y_1, \dots, Y_n\) are independent with
+\(Y_i \sim \mathrm{Bin}(n_i, p_i)\) for \(i=1,\dots, n\). The likelihood
+function looks like this
+
+\[
+L(\boldsymbol{\beta}; \boldsymbol{y}) = \prod_{i=1}^n \binom{n_i}{y_i} p_i^{y_i} (1 - p_i)^{n_i - y_i}.
+\]
+
+So the log-likelihood is
+
+\begin{equation}\phantomsection\label{eq-binomloglik}{
+l(\boldsymbol{\beta}; \boldsymbol{y}) = \sum_{i=1}^n \left[y_i \log p_i-y_i \log(1-p_i)+ n_i \log(1-p_i) +\log \binom{n_i}{y_i} \right]
+}\end{equation}
+
+For the full model all the \(p_i\)'s can be separately determined, so
+\(\boldsymbol{\beta}=(p_1, \dots, p_n)^\intercal\) and with algebra
+(which we'll skip) it can show that the optimal/maximizing choices are
+\(\hat{p}_i=y_i/n_i\). This gives
+
+\begin{equation}\phantomsection\label{eq-binomloglikfullmodel}{
+l(\hat{\boldsymbol{\beta}}_{\max}; \boldsymbol{y}) = \sum \left[y_i \log \left(\frac{y_i}{n_i}\right)-y_i \log\left(\frac{n_i-y_i}{n_i}\right) + n_i \log\left(\frac{n_i-y_i}{n_i}\right) +\log \binom{n_i}{y_i} \right].
+}\end{equation}
+
+For any model with \(s<n\) parameters, the mle for \(p_i\), which we
+call \(\hat{p}_i\) will come from the fitted values \(\hat{y}_i\) from
+the linear model. In the saturated model we were able to ensure
+\(\hat{y}_i=y_i\) for all \(i\), but now we likely cannot. So in
+Equation~\ref{eq-binomloglik} we replace \(p_i\) with
+\(\hat{p}_i = \frac{\hat{y}_i}{n_i}\) to obtain
+
+\[
+l(\hat{\boldsymbol{\beta}}; \boldsymbol{y}) = \sum_{i=1}^n \left[y_i \log \left(\frac{\hat{y}_i}{n_i}\right)-y_i \log\left(\frac{n_i-\hat{y}_i}{n_i}\right)+n_i \log\left(\frac{n_i-\hat{y}_i}{n_i}\right) +\log \binom{n_i}{y_i} \right].
+\]
+
+Thus, the deviance is
+
+\begin{equation}\phantomsection\label{eq-binomdev}{
+D = 2[ l(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})-l(\hat{\boldsymbol{\beta}};\boldsymbol{y})]= 2\sum_{i=1}^n \left[ y_i \log\left(\frac{y_i}{\hat{y}_i}\right)+ (n_i - y_i)  \log\left(\frac{n_i-y_i}{n_i-\hat{y}_i}\right) \right].
+}\end{equation}
+
+\end{fbxSimple}
+
+\phantomsection\label{deviance-for-a-normal-linear-model}
+\begin{fbxSimple}{Example}{Example 10: }{Deviance for a normal linear model}
+\phantomsection\label{deviance-for-a-normal-linear-model}
+
+Suppose \(Y_1, \dots, Y_n\) are independent with
+\(Y_i \sim N(\mu_i, \sigma^2)\) and
+\(E(Y_i)= \mu_i=\boldsymbol{X}^\intercal_i  \boldsymbol{\beta}\) for
+\(i=1,\dots, n\) . The likelihood function is
+
+\[
+L(\boldsymbol{\beta};\boldsymbol{y}) = \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_i-\mu_i)^2}{2\sigma^2} \right).
+ \]
+
+So, with a little algebra, the log-likelihood function is
+
+\begin{equation}\phantomsection\label{eq-normalloglik}{
+l(\boldsymbol{\beta}; \boldsymbol{y}) = -\frac{1}{2\sigma^2}\sum_{i=1}^n(y_i -\mu_i)^2 -\frac{1}{2}n \log(2\pi \sigma^2).
+}\end{equation}
+
+For the saturated model, with \(n\) parameters, we can essentially
+control all the \(\mu_1, \dots, \mu_n\). The MLEs are
+\(\hat{\mu}_i=y_i\) and so the maximum value of the log-likelihood
+becomes
+
+\begin{equation}\phantomsection\label{eq-normloglikfullmodel}{
+l(\hat{\boldsymbol{\beta}}_{\max}; \boldsymbol{y}) =  -\frac{1}{2}n \log(2\pi \sigma^2).
+}\end{equation}
+
+For any other model with \(p<n\) parameters, the MLE of
+\(\boldsymbol{\beta}\) is
+\(\hat{\boldsymbol{\beta}} = (\boldsymbol{X}^\intercal \boldsymbol{X})^{-1} \boldsymbol{X}^\intercal \boldsymbol{y}.\)
+The corresponding maximised log-likelihood function is
+
+\[
+l(\hat{\boldsymbol{\beta}}; \boldsymbol{y}) = -\frac{1}{2\sigma^2}\sum_{i=1}^n(y_i -\boldsymbol{x}_i^{\intercal} \hat{\boldsymbol{\beta}})^2 -\frac{1}{2}n \log(2\pi \sigma^2).
+\]
+
+The deviance,
+\(D = 2\left[l(\hat{\boldsymbol{\beta}}_{\max};\boldsymbol{y})-l(\hat{\boldsymbol{\beta}};\boldsymbol{y})\right]\)
+is therefore \begin{equation}\phantomsection\label{eq-normaldev}{
+D = \frac{1}{\sigma^2}\sum_{i=1}^n \left(y_i-\boldsymbol{x}_i^{\intercal} \hat{\boldsymbol{\beta}}\right)^2  =\frac{1}{\sigma^2} \sum_{i=1}^n \left(y_i-\hat{\mu}_i\right)^2.
+}\end{equation}
+
+It turns out that the (exact) distribution of \(D\) is \(\chi^2(n-p)\).
+If the model fits the data well, then \(D \sim \chi^2(n-p)\), and the
+expected value of \(D\) will be \(n-p\), since the expectation of a
+chi-squared random variable is equal to its degrees of freedom.
+
+However, we are not able to use this chi-squared distribution directly,
+because the expression for the deviance contains the nuisance parameter
+\(\sigma^2\). As you may remember from your linear regression courses,
+we end up using F tests instead.
+
+\end{fbxSimple}
+
+\phantomsection\label{deviance-for-a-poisson-model}
+\begin{fbxSimple}{Example}{Example 11: }{Deviance for a Poisson model}
+\phantomsection\label{deviance-for-a-poisson-model}
+Let \(Y_1, \dots, Y_n\) be independent random variables with
+\(Y_i \sim Po(\mu_i)\). Then the likelihood function is
+
+\[
+L(\boldsymbol{\beta}; \boldsymbol{y}) = \prod_{i=1}^n \frac{\mu_i^{y_i}e^{-\mu_i}}{y_i!},
+\]
+
+and so the log-likelihood function is
+
+\begin{equation}\phantomsection\label{eq-poissonloglik}{
+l(\boldsymbol{\beta}; \boldsymbol{y}) = \sum y_i \log \mu_i - \sum \mu_i -\sum \log (y_i!).
+}\end{equation}
+
+For the full model
+\(\boldsymbol{\beta}_{\max}= (\mu_1,\dots, \mu_n)^\intercal\),
+\(\hat{\mu}_i=y_i\), and the maximum value of the log-likelihood is
+
+\begin{equation}\phantomsection\label{eq-poissonloglikfullmodel}{
+l(\hat{\boldsymbol{\beta}}_{\max}; \boldsymbol{y}) = \sum y_i \log y_i - \sum y_i -\sum \log (y_i!).
+}\end{equation}
+
+Suppose that for the model of interest with \(p<n\) parameters the MLE,
+\(\hat{\boldsymbol{\beta}}\), can be used to obtain \(\hat{\mu}_i\) and
+hence fitted values \(\hat{y}_i=\hat{\mu}_i\) (because
+\(E(Y_i)=\mu_i\)). For the model of interest the maximum value of the
+log-likelihood is
+\begin{equation}\phantomsection\label{eq-poissonloglikactualmodel}{
+l(\hat{\boldsymbol{\beta}}; \boldsymbol{y}) = \sum y_i \log \hat{y}_i - \sum \hat{y}_i -\sum \log (y_i!).
+}\end{equation}
+
+So by subtracting Equation~\ref{eq-poissonloglikactualmodel} from
+Equation~\ref{eq-poissonloglikfullmodel}, the deviance is
+
+\begin{equation}\phantomsection\label{eq-devpoisson}{
+D= 2 [l(\hat{\boldsymbol{\beta}}_{\max}; \boldsymbol{y}) -l(\hat{\boldsymbol{\beta}}; \boldsymbol{y}) ]= 2 \left[\sum y_i \log\left(\frac{y_i} {\hat{y}_i}\right)-\sum (y_i-\hat{y_i}) \right]
+}\end{equation}
+
+For most\footnote{this fails if not including an intercept in the model}
+models \(\sum y_i=\sum \hat{y_i}\), so the deviance can be written as \[
+D=2 \sum y_i \log\left(\frac{y_i} {\hat{y}_i}\right)= 2 \sum o_i \log\left(\frac{o_i} {e_i}\right),
+\]
+
+where \(o_i\) denotes the observed value and \(e_i\) the expected value
+of \(y_i\). The deviance can be computed from the data and compared with
+the \(\chi^2(n-p)\) distribution.
+
+Consider the data below for which the \(Y_i\) are assumed to be
+independent observations from a Poisson distribution.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.1111}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 18\tabcolsep) * \real{0.0694}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(y_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+8
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+9
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+10
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+12
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+15
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(x_i\) & -1 & -1 & 0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+\end{longtable}
+
+We fit a model of the form \(\mu_i=\beta_1 + \beta_2 x_i\). The fitted
+values are \(\hat{y}_i=\hat{\beta}_1 + \hat{\beta}_2 x_i\) where
+\(\hat{\beta}_1 =7.45163\) and \(\hat{\beta}_2= 4.93530\). The deviance
+is \(1.8947\), which is small compared with \(n-p=7\), indicating no
+lack of fit.
+
+\end{fbxSimple}
+
+\phantomsection\label{Task-5}
+\begin{fbxSimple}{Task}{Task 5}{}
+\phantomsection\label{Task-5}
+Verify the value 1.8947 for the deviance given in the above example.
+
+\end{fbxSimple}
+
+\phantomsection\label{Answer-5}
+\begin{fbxSimple}{Answer}{Answer 5}{}
+\phantomsection\label{Answer-5}
+We need to get the fitted values \(\hat{y}_i\) for \(i=1,\dots,9\) and
+then substitute into the expression for the deviance.
+
+Values here are displayed across two tables:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(y_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+2
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+3
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+6
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+7
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+8
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\hat{y}_i\) & 2.51633 & 2.51633 & 7.45163 & 7.45163 & 7.45163 \\
+\(y_i \log\left(\frac{y_i}{\hat{y}_i} \right)\) & -0.45931 & 0.52743 &
+-1.30004 & -0.43766 & 0.56807 \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(y_i\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+9
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+10
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+12
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+15
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\hat{y}_i\) & 7.45163 & 12.38693 & 12.38693 & 12.38693 \\
+\(y_i \log\left(\frac{y_i}{\hat{y}_i} \right)\) & 1.69913 & -2.14057 &
+-0.38082 & 2.87115 \\
+\end{longtable}
+
+So \(\sum_{i=1}^9 y_i \log\left(\frac{y_i} {\hat{y}_i}\right)=0.94738\)
+and
+\(D=2\sum_{i=1}^9 y_i \log\left(\frac{y_i} {\hat{y}_i}\right)=1.89476\).
+
+Notice that since we only have three distinct \(x_i\) values, we only
+have three distinct \(\hat{y}_i\) values. This is the restriction we are
+imposing by using a linear model (though technically we have replicates
+so we may have had no choice here), our model must use the same
+\(\hat{y}_i\) whenever \(x_i=-1\), thus preventing us from matching
+\(\hat{y}_i\) exactly with each \(y_i\) -- which would be ideal to
+minimize the likelihood.
+
+In this case, since close \(x_i\) values has close \(y_i\) values, the
+likelihood after this restriction is not large compared with a case
+where we could set each \(\hat{y}_i=y_i\), so we didn't see a lack of
+fit using our linear model.
+
+\end{fbxSimple}
+
+\subsection{Hypothesis testing using the
+deviance}\label{hypothesis-testing-using-the-deviance}
+
+As we've already seen, we can test hypotheses about the
+\(p\)-dimensional parameter vector \(\boldsymbol{\beta}\) by using the
+Wald statistic and the asymptotic distribution of the MLE.
+
+Alternatively we can compare \term{nested} models \(M_0\) and \(M_1\)
+using the difference of their deviances. Let's consider two such nested
+models, with \(q < p\) covariates:
+
+\begin{description}
+\tightlist
+\item[Model \(M_0\)]
+\(H_0: \boldsymbol{\beta}= \boldsymbol{\beta}_0 = (\beta_1, \dots, \beta_q)^\intercal\).
+\item[Model \(M_1\)]
+\(H_1: \boldsymbol{\beta} = \boldsymbol{\beta}_1=(\beta_1, \dots, \beta_p)^\intercal\).
+\end{description}
+
+We test \(H_0\) against \(H_1\) by considering \[
+\begin{aligned}
+D_0-D_1& =2\left[l(\hat{\boldsymbol{\beta}}_{\max}; \boldsymbol{y}) -l(\hat{\boldsymbol{\beta}}_0; \boldsymbol{y})\right]-2\left[l(\hat{\boldsymbol{\beta}}_{\max}; \boldsymbol{y}) -l(\hat{\boldsymbol{\beta}}_1; \boldsymbol{y})\right] \\
+ &=2\left[ l(\hat{\boldsymbol{\beta}}_1; \boldsymbol{y}) -l(\hat{\boldsymbol{\beta}}_0; \boldsymbol{y})\right]
+\end{aligned}
+\]
+
+If both models describe the data well then \(D_0 \sim \chi^2(n-q)\),
+\(D_1 \sim \chi^2(n-p)\) and \(D_0-D_1 \sim \chi^2(p-q)\). If \(M_1\)
+describes the data well but \(M_0\) does not, then \(D_0-D_1\) will be
+larger than expected for a value from \(\chi^2(p-q)\). So, reject
+\(H_0\) if \(D_0-D_1> \chi^2(1-\alpha; p-q)\) that is, if the difference
+in deviances exceeds the upper \(100\times \alpha \%\) point of the
+\(\chi^2(p-q)\) distribution.
+
+\phantomsection\label{hypothesis-test-for-the-gpa-coefficient-in-the-model-for-medical-school-admissions-this-time-using-deviances}
+\begin{fbxSimple}{Example}{Example 12: }{Hypothesis test for the GPA coefficient in the model for medical school admissions, this time using deviances}
+\phantomsection\label{hypothesis-test-for-the-gpa-coefficient-in-the-model-for-medical-school-admissions-this-time-using-deviances}
+Suppose that we want to test \(H_0: \beta_1=0\) in the medical school
+admissions example. We can perform this test using the deviances given
+in the output.
+
+\begin{verbatim}
+
+Call:
+glm(formula = Acceptance ~ GPA, family = binomial, data = MedGPA)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -19.207      5.629  -3.412 0.000644 ***
+GPA            5.454      1.579   3.454 0.000553 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 75.791  on 54  degrees of freedom
+Residual deviance: 56.839  on 53  degrees of freedom
+AIC: 60.839
+
+Number of Fisher Scoring iterations: 4
+\end{verbatim}
+
+Here \(D_0\) is the null deviance, that is the deviance in the model
+that includes only the intercept (and no other predictors). \(D_1\) is
+the residual deviance, that is the deviance of the model of interest
+(the model with GPA included as a predictor). Under \(H_0\), \(D_0-D_1\)
+should be approximately distributed as \(\chi^2_1\). The 95th percentile
+of the \(\chi^2(1)\) distribution, sometimes written
+\(\chi^2(0.95; 1)\), is \(3.84\), and since
+\(D_0-D_1=75.791-56.839=18.952>3.84\) we can reject the null hypothesis.
+Again we conclude that GPA is a significant term in the model.
+
+\end{fbxSimple}
+
+
+
+
+\end{document}

@@ -75,6 +75,8 @@ website:
         href: Ch5/Ch5.html
       - text: "Invisible text (edit)"
         href: Ch6/Ch6.html
+      - text: "Sample chapter from APM (edit)"
+        href: ChX/Week2.html
       
 # My filters
 filters:

@@ -111,6 +111,7 @@ format:
     default-image-extension: png
     keep-tex: true # Useful to be set to true for debugging the tex file
     papersize: a4
+    toc-depth: 2
     number-sections: true
     include-in-header: ["include-in-header.tex"] # Latex macros and more. Macros need duplicating here (see above)
     code-block-overflow: wrap

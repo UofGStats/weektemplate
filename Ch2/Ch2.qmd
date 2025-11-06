@@ -1,12 +1,13 @@
 # Week 2 -- Code demonstrations {#sec-code-demo}
 
-Some equations, again. Notice this chapter begins with:
+Some equations, again. Notice this chapter includes the following code (in `_metadata.yml`):
 ```
 ---
 filters:
     - acc-tools
 ---
 ```
+
 This loads the bonus accessibility features extension. There is a global code toggle button bottom left, and the R and P keyboard buttons will switch **all** code tabs simultaneously to the chosen language.
 
 Documentation for it can be found here: [UofGStats/acc-tools repo](https://github.com/UofGStats/acc-tools)
@@ -22,11 +23,14 @@ This equation was called @eq-AROC.
 
 - You'll first note in the bottom left is a global toggle button set. You can change all code blocks to R or to Python, by clicking; or by pressing `R` or `P` on the keyboard.
 
-## Setting things up
+## New Section Title
 
 Hidden here is a setup block of R code to load packages and set graph sizes. 
 
-```{r r-setup,echo=FALSE, include=FALSE, fig.height=4, fig.align='center'}
+```{r}
+#| echo: false
+#| include: false
+#| label: r-setup
 knitr::opts_chunk$set(comment=NA, warning = FALSE, message = FALSE)
 library(ggplot2)
 library(knitr)
@@ -64,13 +68,20 @@ library(gridExtra)
 ```
 
 <!-- Setup python via conda and a predefined quarto environment -->
-```{r retic-setup, echo=F}
-#| code-fold: false
+```{r}
+#| label: python-setup
+#| echo: fenced
 library(reticulate)
-#reticulate::use_condaenv(condaenv = "quarto", conda = "auto", required = TRUE)
+#These next two lines need to run ONCE on your machine
+#reticulate::virtualenv_create("r-quarto")
+#reticulate::py_install(c("pandas","seaborn","matplotlib","numpy"), envname = "r-quarto")
+reticulate::use_virtualenv("r-quarto", required = TRUE)
 ```
 
-```{python py-imports, echo=F, eval=F}
+```{python}
+#| label:  py-imports
+#| echo: false
+#| eval: true # Note we are not evaluating, we already loaded in earlier qmd
 # Standard plot settings
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -82,6 +93,7 @@ import statsmodels.formula.api as smf
 # fig, ax = plt.subplots(figsize=(8, 5))
 ```
 
+Another standard callout box.
 
 :::{.callout-tip}
 ### Beetle mortality
@@ -100,18 +112,22 @@ The code blocks themselves are just like usual RMarkdown blocks you define a lan
 
 ### R
 
-```{r, results = 'hide'}
-#| code-fold: show
+The code in the R example is folded by default. Click on `Code` to reveal it.
+
+```{r}
+#| label: r-beetles-load
+#| code-fold: true
 beetles <- read.csv(url("http://www.stats.gla.ac.uk/~tereza/rp/beetles.csv"))
 beetles
 ```
 
 ### Python
 
-```{python py-beetle-load, results = 'hide', eval=F}
+```{python}
+#| label: py-beetles-load
 import pandas as pd
-# beetles = pd.read_csv("resources/data/beetles.csv")
-# beetles
+beetles = pd.read_csv("../resources/data/beetles.csv")
+beetles
 ```
 
 ::::::
@@ -192,23 +208,4 @@ This figure caption is written in a dark font color. The Quarto default is often
 :::
 
 Note that our plot before was called `#fig-myplot` so we can use `@fig-myplot` to reference @fig-myplot.
-
-:::{.callout-warning}
-## Information on code blocks
-
-Some content
-:::
-
-:::{.callout-caution}
-## 
-
-Some content
-:::
-
-:::{.callout-note}
-## Conventional note callout
-
-Some content
-:::
-
 

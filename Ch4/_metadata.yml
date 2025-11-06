@@ -3,6 +3,9 @@ week_title: Week 4
 number-offset: 3
 filters:
    - acc-tools
+   
+acc-tools:
+  global-toggle: false
 
 format:
   html: default

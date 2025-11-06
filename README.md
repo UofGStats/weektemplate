@@ -150,8 +150,8 @@ format:
 ```
 
 - **`sidebar`**: Leave this field alone, this describes the type of sidebar used.
-- **`week_title`**: Title of the week, displayed at the top of the page. **You should edit this**
-- **`number-offset`**: Must be **one less than the chapter number**. You shoud ensure this is correct.  
+- **`week_title`**: Title of the week, displayed in the sidebar of the page. **You should edit this**
+- **`number-offset`**: Must be **one less than the chapter number**. You should ensure this is correct.  
 - **PDF chapter numbering**: The `\setcounter{chapter}{…}` value must match `number-offset`.  **See line above.**
 
 ---

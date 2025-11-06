@@ -51,15 +51,6 @@ If you want a full copy of the project structure, you can clone the repository:
 git clone https://github.com/UofGStats/weektemplate.git
 ```
 
-After cloning, remove the existing Git history and links to the original repository and re-initialize for your own use:
-
-```bash
-rm -rf .git
-git init
-```
-
-This ensures your new project starts clean, without any connection to the source repository.
-
 ### Option 2: Use the Quarto template functionality (This only works if the repository is Public)
 
 To create a new project from the template using Quarto directly:

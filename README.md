@@ -7,8 +7,9 @@ This document explains how to install, set up, and customize the UofG Stats week
 ## Table of Contents
 
 - [Installation](#installation)  
-  - [Option 1: Clone the repository](#option-1-clone-the-repository)  
-  - [Option 2: Use the Quarto template](#option-2-use-the-quarto-template)  
+  - [Option 1: Use the GitHub Template (recommended)](#option-1-use-the-github-template-recommended)  
+  - [Option 1b: Clone the repository (not recommended unless you want to propose changes to the template)](#option-1b-clone-the-repository-not-recommended-unless-you-want-to-propose-changes-to-the-template)  
+  - [Option 2: Use the Quarto template functionality (This only works if the repository is Public)](#option-2-use-the-quarto-template-functionality-this-only-works-if-the-repository-is-public)  
 - [Setting up your weekly materials](#setting-up-your-weekly-materials)  
   - [Optional: Specify which files to render](#optional-specify-which-files-to-render)  
 - [`_metadata.yml` in each week’s folder](#_metadatayml-in-each-weeks-folder)  
@@ -18,15 +19,31 @@ This document explains how to install, set up, and customize the UofG Stats week
 - [Customizing colours and boxes](#customizing-colours-and-boxes)  
   - [1. Default colours and box types](#1-default-colours-and-box-types)  
   - [2. Dark-mode colours](#2-dark-mode-colours)  
-- [Template colours and styles](#template-colours-and-styles)  
+- [Template colours and styles](#template-colours-and-styles)
+
 
 ---
 
 ## Installation
 
-You can set up this template in one of two ways: by cloning the repository directly, or by using Quarto’s built-in template system.
+The recommended route to use this template is to use Github's `Use this template` functionality. Then you get your own version of this repository for your own notes, not linked to the template.
 
-### Option 1: Clone the repository
+### Option 1: Use the GitHub Template (recommended)
+
+1. Go to the [template repository on GitHub](https://github.com/UofGStats/weektemplate).  
+2. Find and click the `Use this template` button, then “Create a new repository”.  
+3. Choose a name for your new project and click **Create repository**.
+
+This will generate a new repository with the same structure, **without copying the Git history** from the template.
+
+Once created, clone your new repository locally:
+
+```bash
+git clone https://github.com/<your-username>/<your-new-repo>.git
+cd <your-new-repo>
+```
+
+### Option 1b: Clone the repository (not recommended unless you want to propose changes to the template)
 
 If you want a full copy of the project structure, you can clone the repository:
 
@@ -43,7 +60,7 @@ git init
 
 This ensures your new project starts clean, without any connection to the source repository.
 
-### Option 2: Use the Quarto template functionality
+### Option 2: Use the Quarto template functionality (This only works if the repository is Public)
 
 To create a new project from the template using Quarto directly:
 

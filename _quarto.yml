@@ -48,7 +48,7 @@ website:
           <p class="sidebar-subtitle"><span>{{< meta week_title >}}</span></p>
         </div>
       footer: |
-        <div class="quarto-other-formats=target"></div>
+        <div class="quarto-other-formats-target"></div>
     - id: hub
       style: "docked"
       search: true
@@ -61,7 +61,7 @@ website:
           <p class="sidebar-subtitle"><span>{{< meta week_title >}}</span></p>
         </div>
       footer: |
-        <div class="quarto-other-formats=target"></div>
+        <div class="quarto-other-formats-target"></div>
       contents:
       - text: "Doing headings (edit)"
         href: Ch1/Ch1.html

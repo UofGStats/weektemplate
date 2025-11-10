@@ -93,7 +93,7 @@ library(gridExtra)
 
 <!-- Setup python via conda and a predefined quarto environment -->
 ```{r}
-#| label: reticulate-setp
+#| label: reticulate-setup
 #| code-fold: false
 #| echo: false
 library(reticulate)

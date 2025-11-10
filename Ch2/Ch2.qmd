@@ -69,7 +69,7 @@ library(gridExtra)
 
 <!-- Setup python via conda and a predefined quarto environment -->
 ```{r}
-#| label: python-setup
+#| label: reticulate-setup
 #| echo: fenced
 library(reticulate)
 #These next two lines need to run ONCE on your machine

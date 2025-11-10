@@ -37,8 +37,6 @@ website:
     right: "Developed by David Hodge for the University of Glasgow"
   sidebar:
     - id: Weekly
-      tools:
-        - icon: ""
       style: "floating"
       search: true
       header: |
@@ -49,9 +47,9 @@ website:
           <h2 class="sidebar-title"><span>{{< meta course_title >}}</span></h2>
           <p class="sidebar-subtitle"><span>{{< meta week_title >}}</span></p>
         </div>
+      footer: |
+        <div class="quarto-other-formats=target"></div>
     - id: hub
-      tools:
-        - icon: ""
       style: "docked"
       search: true
       header: |
@@ -62,6 +60,8 @@ website:
           <h2 class="sidebar-title"><span>{{< meta course_title >}}</span></h2>
           <p class="sidebar-subtitle"><span>{{< meta week_title >}}</span></p>
         </div>
+      footer: |
+        <div class="quarto-other-formats=target"></div>
       contents:
       - text: "Doing headings (edit)"
         href: Ch1/Ch1.html

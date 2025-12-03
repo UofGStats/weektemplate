@@ -51,7 +51,7 @@ website:
         <div class="quarto-other-formats-target"></div>
     - id: hub
       style: "docked"
-      search: true
+      search: false
       header: |
         <div class="book-title-section">
           <img src="../resources/logos/MandS-logo.png"

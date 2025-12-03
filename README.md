@@ -2,7 +2,7 @@
 
 This document explains how to install, set up, and customize the UofG Stats weekly Quarto template.  
 
-**Warning**: This template contains python code as well as R code. If you don't have python installed and don't wish to use it, make sure to check out the advice on [how to disable python](#disabling-python).
+**Warning**: This template contains python code as well as R code. By default the python code does **not** render. If you do have python installed and wish to use it, make sure to check out the advice on [how to enable python](#enabling-python).
 
 ---
 
@@ -23,7 +23,7 @@ This document explains how to install, set up, and customize the UofG Stats week
   - [2. Dark-mode colours](#2-dark-mode-colours)  
 - [Template colours and styles](#template-colours-and-styles)
 - [Python](#python)
-  - [Disabling Python](#disabling-python)
+  - [Enabling Python](#enabling-python)
   - [Using Python](#using-python)
 
 
@@ -251,17 +251,21 @@ Note that only macros compatible with MathJax can be rendered in HTML output.
 
 This template contains both R and Python code. So you have two options, follow the instructions below to ensure R can see Python (via the `reticulate` package).
 
-Or, if you just want to disable python globally and test out the template then [Disabling Python](#disabling-python) is for you!
+**To make first compilation easy the Python chunks are by default all disabled. **
 
-### Disabling Python
+Or, if you just want to enable python globally and test out the template then [Enabling Python](#enabling-python) is for you!
 
-A file called `nopython.Rprofile` comes with the template. You just need to rename this file to `.Rprofile` (or add its contents to your existing `.Rprofile` file if you're using one for other purposes).
+### Enabling Python
 
-Once you have renamed `nopython.Rprofile` to `.Rprofile` when you render all python blocks will be set to `eval: false` and all r blocks with the label `reticulate-setup` will also be set to `eval: false`.
+A file called `.Rprofile` comes with the template. You just need to rename this file to anything else, such as `python.Rprofile`.
+
+The file `.Rprofile` provided contains some scripts which sets all python blocks to `eval: false` and also all r blocks with the label `reticulate-setup` to `eval: false`. This `.Rprofile` file is always run before all rendering automatically.
+
+If you rename it away from `.Rprofile` then the python blocks and reticulate setup will run as expected.
 
 ### Using Python
 
- So if you don't have Python installed on your system already then you will need to do that first. Once you do, install the `reticulate` package in R, and finally look for any of the code blocks that look like this:
+If you do wish to use Python, but don't have Python installed on your system already then you will need to do that first. Once you do, install the `reticulate` package in R, and finally look for any of the code blocks that look like this:
 
 `````markdown
 ```{r}
@@ -270,11 +274,13 @@ Once you have renamed `nopython.Rprofile` to `.Rprofile` when you render all pyt
 library(reticulate)
 #These next two lines need to run ONCE on your machine
 #reticulate::virtualenv_create("r-quarto")
-#reticulate::py_install(c("pandas","seaborn","matplotlib","numpy"), envname = "r-quarto")
+#reticulate::py_install(c("pandas","seaborn","matplotlib","numpy","statsmodels"), envname = "r-quarto")
 reticulate::use_virtualenv("r-quarto", required = TRUE)
 ```
 `````
-Note the instructions in the block say that you will need to **once** run the two commented lines of code to setup a Python environment for your code to use. So **uncomment them**, **run them**, then **comment them again** and all should work.
+Note the instructions in the block say that you will need to **once** run the two commented lines of code to setup a Python environment for your code to use. 
+
+To do this, run `library(reticulate)` then **uncomment the two lines them**, **run them**, then **comment them again** and all should work.
 
 Naturally this will need running on any new machine you work on. If using RStudio and `reticulate` struggles to find Python, there's a menu **Tools** -- **Global Options** -- **Python** menu to assist.
 

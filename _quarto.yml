@@ -35,10 +35,11 @@ crossref:
 website:
   page-footer:
     right: "Developed by David Hodge for the University of Glasgow"
+  search: false
   sidebar:
     - id: Weekly
       style: "floating"
-      search: true
+      search: false
       header: |
         <div class="book-title-section">
           <img src="../resources/logos/MandS-logo.png"

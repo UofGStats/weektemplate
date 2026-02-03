@@ -12,6 +12,7 @@ This loads the bonus accessibility features extension. There is a global code to
 
 Documentation for it can be found here: [UofGStats/acc-tools repo](https://github.com/UofGStats/acc-tools)
 
+If you plan to use it in all (or most) chapters, then you can just turn it on globally by instead putting this `filters` code above to the `_quarto.yml` file. Then disable features on a chapter-by-chapter basis.
 
 $$\diff[3]{y}{x}$$
 

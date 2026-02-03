@@ -32,6 +32,11 @@ crossref:
       key: vid
       latex-env: video
 
+# Enables new MathJax 4
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"
+
 website:
   page-footer:
     right: "Developed by David Hodge for the University of Glasgow"
@@ -77,7 +82,7 @@ website:
       - text: "Invisible text (edit)"
         href: Ch6/Ch6.html
       - text: "Sample chapter from APM (edit)"
-        href: ChX/Week2.html
+        href: ChX/BinaryGLM.html
       
 # My filters
 filters:
@@ -86,6 +91,10 @@ filters:
   - custom-numbered-blocks # These are the nice coloured boxes
   - invis # This allows hidden text
   - iframe # This allows embedding iframe, e.g. Numbas questions
+  #- acc-tools # Accessibility tools, including R/Python switcher.
+  #Uncomment the line above to turn this on globally. 
+  #Can then turn off per chapter when needed.
+  #See documentation: https://github.com/UofGStats/acc-tools
   
 environments: [term] # Needs latex-environment above (and see below)
 commands: [term] # Allows consistent highlighting of key terms
@@ -103,6 +112,10 @@ format:
     toc-depth: 4 # How deep to go in table of contents
     number-sections: true
     #respect-user-color-scheme: true # Permit auto-dark mode if desired set by user
+    include-in-header: #code to reduce youtube overheads
+      - text: |
+          <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.0/src/lite-yt-embed.js"></script>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.0/src/lite-yt-embed.css" />
     theme:
       light: [themes/load-light.scss, cosmo]
       dark: [superhero, themes/load-dark.scss] # Remove this row to totally remove
